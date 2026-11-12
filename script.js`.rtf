@@ -1,0 +1,275 @@
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset178 Calibri;}{\f2\fnil Calibri;}{\f3\fnil\fcharset1 Segoe UI Symbol;}{\f4\fnil\fcharset1 Cambria Math;}{\f5\fnil\fcharset1 Segoe UI Symbol;}}
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont4\mwrapIndent1440 }\viewkind4\uc1 
+\pard\ltrpar\sa200\sl276\slmult1\f0\fs22\lang9 ### `script.js`\par
+\par
+```\par
+/**\par
+ * ==========================================================================\par
+ * \f1\rtlch\lang3073\'c7\'e1\'e3\'e6\'de\'da \'c7\'e1\'d1\'d3\'e3\'ed \'e1\'da\'c7\'c6\'e1\'c9 "\'e6\'d3\'ed\'d8\'df\f2\ltrch  \f3\u-10179?\u-9135?\u-10179?\u-8923?\f2\lang1033  \f0 Business Man \f3\u-10179?\u-8690?\u-10178?\u-8840?\f0 "\par
+ * script.js - \f1\rtlch\lang3073\'c7\'e1\'ca\'cd\'df\'e3 \'c7\'e1\'ca\'dd\'c7\'da\'e1\'ed \'e6\'e3\'d5\'dd\'e6\'dd\'c7\'ca \'c7\'e1\'c3\'d3\'da\'c7\'d1 \'e6\'c7\'e1\'c8\'ed\'c7\'e4\'c7\'ca \'c7\'e1\'e3\'da\'ca\'e3\'cf\'c9\f0\ltrch\lang1033\par
+ * ==========================================================================\par
+ */\par
+\par
+// --------------------------------------------------------------------------\par
+// \f1\rtlch\lang3073 1\f0\ltrch\lang1033 ) \f1\rtlch\lang3073\'e3\'d5\'dd\'e6\'dd\'c7\'ca \'e6\'c8\'ed\'c7\'e4\'c7\'ca \'c7\'e1\'e3\'e6\'de\'da \'c7\'e1\'d1\'d3\'e3\'ed\'c9 \'c7\'e1\'e3\'da\'ca\'e3\'cf\'c9\f0\ltrch\lang1033\par
+// --------------------------------------------------------------------------\par
+\par
+// \f1\rtlch\lang3073\'e3\'d5\'dd\'e6\'dd\'c9 \'c3\'d3\'da\'c7\'d1 \'ca\'d0\'c7\'df\'d1 \'c7\'e1\'de\'c7\'e5\'d1\'c9 \f4\ltrch\u8592?\f2  \f1\rtlch\lang3073\'c7\'e1\'d3\'e6\'cf\'c7\'e4 (\'cc\'e4\'ed\'e5 \'e3\'d5\'d1\'ed\'a1 \'c3\'df\'ca\'e6\'c8\'d1 2026)\f0\ltrch\lang1033\par
+const TICKETS_DATA = [\par
+  \{ destination: "\f1\rtlch\lang3073\'c7\'e1\'ce\'d1\'d8\'e6\'e3\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3000\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'ce\'d1\'d8\'e6\'e3\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'da\'d8\'c8\'d1\'c9\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3000\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'e4\'e5\'d1 \'c7\'e1\'e4\'ed\'e1\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'e3\'cf\'e4\'ed\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3600\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'cc\'d2\'ed\'d1\'c9\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'df\'e6\'d3\'ca\'ed / \'d1\'c8\'df\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3700\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'e4\'ed\'e1 \'c7\'e1\'c3\'c8\'ed\'d6\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'d3\'e4\'c7\'d1\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3800\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'d3\'e4\'c7\'d1\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'d3\'e4\'cc\'c9\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 4000\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'d3\'e4\'c7\'d1\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'c8\'e6\'d1\'ca\'d3\'e6\'cf\'c7\'e4\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3800\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'c8\'cd\'d1 \'c7\'e1\'c3\'cd\'e3\'d1\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'df\'d3\'e1\'c7\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3900\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'d4\'d1\'de \'c7\'e1\'d3\'e6\'cf\'c7\'e4\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'c7\'e1\'de\'d6\'c7\'d1\'dd\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 4200\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'d4\'d1\'de \'c7\'e1\'d3\'e6\'cf\'c7\'e4\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'c7\'e1\'e3\'e4\'c7\'de\'e1\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 3800\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'cc\'d2\'ed\'d1\'c9\f0\ltrch\lang1033 " \},\par
+  \{ destination: "\f1\rtlch\lang3073\'c7\'e1\'cf\'e3\'c7\'d2\'ed\'e4\f0\ltrch\lang1033 ", price: \f1\rtlch\lang3073 4300\f0\ltrch\lang1033 , region: "\f1\rtlch\lang3073\'e6\'e1\'c7\'ed\'c9 \'c7\'e1\'e4\'ed\'e1 \'c7\'e1\'c3\'d2\'d1\'de\f0\ltrch\lang1033 " \}\par
+];\par
+\par
+// \f1\rtlch\lang3073\'c3\'d1\'de\'c7\'e3 \'e5\'e6\'c7\'ca\'dd \'e6\'ca\'e6\'c7\'d5\'e1 \'da\'c7\'c6\'e1\'c9 \'e6\'d3\'ed\'d8\'df \'c8\'c7\'e1\'e3\'dd\'ca\'c7\'cd \'c7\'e1\'cf\'e6\'e1\'ed (\'d1\'e6\'c7\'c8\'d8 \'e6\'c7\'ca\'d3\'c7\'c8 \'e3\'c8\'c7\'d4\'d1\'c9)\f0\ltrch\lang1033\par
+const CONTACT_INFO = \{\par
+  ticketsBooking: "\f1\rtlch\lang3073 201156584596\f0\ltrch\lang1033 ",      // \f1\rtlch\lang3073\'cd\'cc\'d2 \'c7\'e1\'ca\'d0\'c7\'df\'d1 \'c7\'e1\'c8\'d1\'ed\'c9 \'e6\'c7\'e1\'cc\'e6\'ed\'c9\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01156584596\f0\ltrch\lang1033 )\par
+  managerServices: "\f1\rtlch\lang3073 201156584596\f0\ltrch\lang1033 ",     // \f1\rtlch\lang3073\'e3\'cf\'ed\'d1 \'ce\'cf\'e3\'c7\'ca \'e6\'d3\'ed\'d8\'df \'e3\'da\'c7\'d0 \'da\'c8\'cf\'c7\'e1\'c8\'c7\'de\'ed\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01156584596\f0\ltrch\lang1033 )\par
+  internationalShipping: "\f1\rtlch\lang3073 201092964003\f0\ltrch\lang1033 ", // \f1\rtlch\lang3073\'c3\'e5\'e1 \'c7\'e1\'cb\'de\'c9 \'e1\'e1\'d4\'cd\'e4 \'c7\'e1\'cf\'e6\'e1\'ed\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01092964003\f0\ltrch\lang1033 )\par
+  sudanMainOffice: "\f1\rtlch\lang3073 249124690430\f0\ltrch\lang1033 ",     // \f1\rtlch\lang3073\'e3\'df\'ca\'c8 \'c7\'e1\'d3\'e6\'cf\'c7\'e4 \'c7\'e1\'d1\'c6\'ed\'d3\'ed\f0\ltrch\lang1033  (+\f1\rtlch\lang3073 249124690430\f0\ltrch\lang1033 )\par
+  travelAbaSheiba: "\f1\rtlch\lang3073 201159619986\f0\ltrch\lang1033 ",     // \f1\rtlch\lang3073\'e6\'df\'c7\'e1\'c9 \'c3\'c8\'d4\'ed\'c8\'c9 \'e1\'e1\'d8\'ed\'d1\'c7\'e4 \'e6\'c7\'e1\'da\'e3\'d1\'c9\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01159619986\f0\ltrch\lang1033 )\par
+  uaePinkBiz: "\f1\rtlch\lang3073 971561600333\f0\ltrch\lang1033 ",          // \f1\rtlch\lang3073\'e6\'df\'c7\'e1\'c9\f0\ltrch\lang1033  Pink \f1\rtlch\lang3073\'e1\'d1\'cc\'c7\'e1 \'c7\'e1\'c3\'da\'e3\'c7\'e1\f0\ltrch\lang1033  (+\f1\rtlch\lang3073 971561600333\f0\ltrch\lang1033 )\par
+  uaeCleaning: "\f1\rtlch\lang3073 971544289536\f0\ltrch\lang1033 ",         // \f1\rtlch\lang3073\'d4\'d1\'df\'c9 \'c3\'c8\'e6 \'da\'c8\'cf \'d1\'c8\'e5 \'e1\'e1\'ca\'e4\'d9\'ed\'dd\f0\ltrch\lang1033  (+\f1\rtlch\lang3073 971544289536\f0\ltrch\lang1033 )\par
+  storeEzzo\f1\rtlch\lang3073 1\f0\ltrch\lang1033 : "\f1\rtlch\lang3073 201157502095\f0\ltrch\lang1033 ",          // \f1\rtlch\lang3073\'e3\'ca\'cc\'d1 \'da\'d2\'e6 \'e3\'c8\'ed\'da\'c7\'ca \'c7\'e1\'da\'d1\'d6\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01157502095\f0\ltrch\lang1033 )\par
+  storeEzzo\f1\rtlch\lang3073 2\f0\ltrch\lang1033 : "\f1\rtlch\lang3073 201156584596\f0\ltrch\lang1033 ",          // \f1\rtlch\lang3073\'e3\'ca\'cc\'d1 \'da\'d2\'e6 \'e3\'c8\'ed\'da\'c7\'ca \'c5\'d6\'c7\'dd\'ed\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01156584596\f0\ltrch\lang1033 )\par
+  madadPhone\f1\rtlch\lang3073 1\f0\ltrch\lang1033 : "\f1\rtlch\lang3073 201130183516\f0\ltrch\lang1033 ",         // \f1\rtlch\lang3073\'e3\'cf\'cf \'dd\'e6\'e4 - \'e3. \'da\'c8\'cf \'c7\'e1\'cd\'e1\'ed\'e3\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01130183516\f0\ltrch\lang1033 )\par
+  madadPhone\f1\rtlch\lang3073 2\f0\ltrch\lang1033 : "\f1\rtlch\lang3073 201156684294\f0\ltrch\lang1033 "          // \f1\rtlch\lang3073\'e3\'cf\'cf \'dd\'e6\'e4 - \'e5\'c7\'ca\'dd \'c5\'d6\'c7\'dd\'ed\f0\ltrch\lang1033  (\f1\rtlch\lang3073 01156684294\f0\ltrch\lang1033 )\par
+\};\par
+\par
+// \f1\rtlch\lang3073\'df\'e6\'cf \'c7\'e1\'ce\'d5\'e3 \'c7\'e1\'e3\'da\'ca\'e3\'cf\f0\ltrch\lang1033\par
+const DISCOUNT_COUPON_CODE = "\f1\rtlch\lang3073\'c3\'e4\'c7 \'e3\'e4 \'d8\'d1\'dd \'e6\'d3\'ed\'d8\'df\f2\ltrch  \f3\u-10179?\u-8690?\u-10179?\u-9135?\u-10179?\u-9046?\f0\lang1033 ";\par
+\par
+// --------------------------------------------------------------------------\par
+// 2) \f1\rtlch\lang3073\'e3\'e4\'d8\'de \'ca\'e6\'e1\'ed\'cf \'e6\'da\'d1\'d6 \'c8\'d8\'c7\'de\'c7\'ca \'c7\'e1\'ca\'d0\'c7\'df\'d1 \'e6\'c7\'e1\'c8\'cd\'cb \'c7\'e1\'ca\'dd\'c7\'da\'e1\'ed\f0\ltrch\lang1033\par
+// --------------------------------------------------------------------------\par
+\par
+const ticketsContainer = document.getElementById("ticketsContainer");\par
+const ticketSearchInput = document.getElementById("ticketSearchInput");\par
+const clearSearchBtn = document.getElementById("clearSearchBtn");\par
+const searchResultCount = document.getElementById("searchResultCount");\par
+\par
+/**\par
+ * \f1\rtlch\lang3073\'cf\'c7\'e1\'c9 \'c5\'e4\'d4\'c7\'c1 \'c8\'d8\'c7\'de\'c9 \'ca\'d0\'df\'d1\'c9 \'e1\'df\'e1 \'e6\'cc\'e5\'c9 \'c8\'d1\'c7\'c8\'d8 \'cd\'cc\'d2 \'e6\'c7\'ca\'d3\'c7\'c8 \'e3\'c8\'c7\'d4\'d1\f0\ltrch\lang1033\par
+ */\par
+function createTicketCard(item) \{\par
+  const card = document.createElement("div");\par
+  card.className = "ticket-card fade-in-up";\par
+  \par
+  const bookingMsg = encodeURIComponent(`\f1\rtlch\lang3073\'e3\'d1\'cd\'c8\'c7\'f0 \'e6\'d3\'ed\'d8\'df\'a1 \'c3\'d1\'db\'c8 \'dd\'ed \'cd\'cc\'d2 \'e3\'de\'da\'cf \'c8\'d5 \'d3\'dd\'d1 \'e3\'e4 \'c7\'e1\'de\'c7\'e5\'d1\'c9 \'c5\'e1\'ec\f0\ltrch\lang1033  $\{item.destination\} \f1\rtlch\lang3073\'c8\'d3\'da\'d1\f0\ltrch\lang1033  $\{item.price\} \f1\rtlch\lang3073\'cc.\'e3\f0\ltrch\lang1033 .`);\par
+  const waUrl = `[suspicious link removed]\{CONTACT_INFO.ticketsBooking\}?text=$\{bookingMsg\}`;\par
+\par
+  card.innerHTML = `\par
+    <div>\par
+      <div>\par
+        <span>\f3\lang3073\u-10179?\u-9011?\f0\lang1033 </span>\par
+        <span>$\{item.destination\}</span>\par
+      </div>\par
+      <div>\par
+        <span>$\{item.region || "\f1\rtlch\lang3073\'d3\'dd\'d1 \'c8\'d1\'ed \'e3\'c8\'c7\'d4\'d1\f0\ltrch\lang1033 "\}</span>\par
+        <span>$\{item.price\} <small>\f1\rtlch\lang3073\'cc.\'e3\f0\ltrch\lang1033 </small></span>\par
+      </div>\par
+    </div>\par
+    <a href="$\{waUrl\}" target="_blank">\par
+      \f1\rtlch\lang3073\'cd\'cc\'d2 \'e3\'de\'da\'cf \'c8\'c7\'e1\'e6\'c7\'ca\'d3\'c7\'c8\f2\ltrch  \f4\u8592?\f0\par
+    </a>\par
+  `;\par
+  return card;\par
+\}\par
+\par
+/**\par
+ * \f1\rtlch\lang3073\'da\'d1\'d6 \'de\'c7\'c6\'e3\'c9 \'c7\'e1\'ca\'d0\'c7\'df\'d1 \'c8\'da\'cf \'c7\'e1\'dd\'e1\'ca\'d1\'c9 \'e6\'c7\'e1\'c8\'cd\'cb\f0\ltrch\lang1033\par
+ */\par
+function renderTickets(ticketsToRender) \{\par
+  if (!ticketsContainer) return;\par
+  ticketsContainer.innerHTML = "";\par
+\par
+  if (ticketsToRender.length === \f1\rtlch\lang3073 0\f0\ltrch\lang1033 ) \{\par
+    ticketsContainer.innerHTML = `\par
+      <div>\par
+        <p>\f1\rtlch\lang3073\'da\'d0\'d1\'c7\'f0\'a1 \'e1\'e3 \'e4\'da\'cb\'d1 \'da\'e1\'ec \'e6\'cc\'e5\'c9 \'e3\'d8\'c7\'c8\'de\'c9 \'e1\'c8\'cd\'cb\'df\f2\ltrch  \f3\u-10179?\u-8947?\f0\lang1033 </p>\par
+        <small>\f1\rtlch\lang3073\'ca\'e6\'c7\'d5\'e1 \'e3\'da \'c5\'cf\'c7\'d1\'c9 \'c7\'e1\'cd\'cc\'e6\'d2\'c7\'ca \'da\'c8\'d1 \'c7\'e1\'e6\'c7\'ca\'d3\'c7\'c8 \'e1\'e1\'c7\'d3\'ca\'dd\'d3\'c7\'d1 \'da\'e4 \'c3\'ed \'ce\'d8\'e6\'d8 \'d3\'dd\'d1 \'c5\'d6\'c7\'dd\'ed\'c9\f0\ltrch\lang1033 .</small>\par
+      </div>\par
+    `;\par
+    searchResultCount.textContent = "\f1\rtlch\lang3073\'e1\'c7 \'ca\'e6\'cc\'cf \'e4\'ca\'c7\'c6\'cc \'e3\'d8\'c7\'c8\'de\'c9\f0\ltrch\lang1033 ";\par
+    return;\par
+  \}\par
+\par
+  ticketsToRender.forEach(ticket =&gt; \{\par
+    ticketsContainer.appendChild(createTicketCard(ticket));\par
+  \});\par
+\par
+  if (ticketSearchInput &amp;&amp; ticketSearchInput.value.trim() !== "") \{\par
+    searchResultCount.textContent = `\f1\rtlch\lang3073\'ca\'e3 \'c7\'e1\'da\'cb\'e6\'d1 \'da\'e1\'ec\f0\ltrch\lang1033  ($\{ticketsToRender.length\}) \f1\rtlch\lang3073\'e6\'cc\'e5\'c9 \'e3\'ca\'c7\'cd\'c9\f0\ltrch\lang1033 `;\par
+  \} else if (searchResultCount) \{\par
+    searchResultCount.textContent = "";\par
+  \}\par
+\}\par
+\par
+/**\par
+ * \f1\rtlch\lang3073\'dd\'e1\'ca\'d1\'c9 \'c7\'e1\'ca\'d0\'c7\'df\'d1 \'cd\'d3\'c8 \'c5\'cf\'ce\'c7\'e1 \'c7\'e1\'e3\'d3\'ca\'ce\'cf\'e3\f0\ltrch\lang1033\par
+ */\par
+function handleTicketSearch() \{\par
+  if (!ticketSearchInput) return;\par
+  const query = ticketSearchInput.value.trim().toLowerCase();\par
+  \par
+  if (query === "") \{\par
+    if (clearSearchBtn) clearSearchBtn.style.display = "none";\par
+    renderTickets(TICKETS_DATA);\par
+    return;\par
+  \}\par
+\par
+  if (clearSearchBtn) clearSearchBtn.style.display = "block";\par
+\par
+  const filtered = TICKETS_DATA.filter(t =&gt; \par
+    t.destination.toLowerCase().includes(query) ||\par
+    (t.region &amp;&amp; t.region.toLowerCase().includes(query)) ||\par
+    t.price.toString().includes(query)\par
+  );\par
+\par
+  renderTickets(filtered);\par
+\}\par
+\par
+// --------------------------------------------------------------------------\par
+// \f1\rtlch\lang3073 3\f0\ltrch\lang1033 ) \f1\rtlch\lang3073\'e3\'e4\'d8\'de \'e4\'d3\'ce \'df\'e6\'cf \'c7\'e1\'ce\'d5\'e3 \'c7\'e1\'ca\'dd\'c7\'da\'e1\'ed\f0\ltrch\lang1033\par
+// --------------------------------------------------------------------------\par
+\par
+function setupCouponCopy() \{\par
+  const copyCouponBtn = document.getElementById("copyCouponBtn");\par
+  const copyBtnText = document.getElementById("copyBtnText");\par
+  const copyBtnIcon = document.getElementById("copyBtnIcon");\par
+\par
+  if (!copyCouponBtn) return;\par
+\par
+  copyCouponBtn.addEventListener("click", () =&gt; \{\par
+    navigator.clipboard.writeText(DISCOUNT_COUPON_CODE).then(() =&gt; \{\par
+      copyCouponBtn.classList.add("copied");\par
+      copyBtnIcon.textContent = "\f5\lang3073\u9989?\f0\lang1033 ";\par
+      copyBtnText.textContent = "\f1\rtlch\lang3073\'ca\'e3 \'c7\'e1\'e4\'d3\'ce \'c8\'e4\'cc\'c7\'cd\f0\ltrch\lang1033 !";\par
+\par
+      setTimeout(() =&gt; \{\par
+        copyCouponBtn.classList.remove("copied");\par
+        copyBtnIcon.textContent = "\f3\lang3073\u-10179?\u-9013?\f0\lang1033 ";\par
+        copyBtnText.textContent = "\f1\rtlch\lang3073\'e4\'d3\'ce \'df\'e6\'cf \'c7\'e1\'ce\'d5\'e3\f0\ltrch\lang1033 ";\par
+      \}, \f1\rtlch\lang3073 3000\f0\ltrch\lang1033 );\par
+    \}).catch(() =&gt; \{\par
+      const tempInput = document.createElement("textarea");\par
+      tempInput.value = DISCOUNT_COUPON_CODE;\par
+      document.body.appendChild(tempInput);\par
+      tempInput.select();\par
+      document.execCommand("copy");\par
+      document.body.removeChild(tempInput);\par
+      \par
+      copyBtnIcon.textContent = "\f5\lang3073\u9989?\f0\lang1033 ";\par
+      copyBtnText.textContent = "\f1\rtlch\lang3073\'ca\'e3 \'c7\'e1\'e4\'d3\'ce\f0\ltrch\lang1033 !";\par
+      setTimeout(() =&gt; \{\par
+        copyBtnIcon.textContent = "\f3\lang3073\u-10179?\u-9013?\f0\lang1033 ";\par
+        copyBtnText.textContent = "\f1\rtlch\lang3073\'e4\'d3\'ce \'df\'e6\'cf \'c7\'e1\'ce\'d5\'e3\f0\ltrch\lang1033 ";\par
+      \}, \f1\rtlch\lang3073 3000\f0\ltrch\lang1033 );\par
+    \});\par
+  \});\par
+\}\par
+\par
+// --------------------------------------------------------------------------\par
+// \f1\rtlch\lang3073 4\f0\ltrch\lang1033 ) \f1\rtlch\lang3073\'e3\'ed\'d2\'c9 \'e3\'d4\'c7\'d1\'df\'c9 \'d1\'c7\'c8\'d8 \'c7\'e1\'e3\'e6\'de\'da \'c8\'d3\'e5\'e6\'e1\'c9\f0\ltrch\lang1033  (Share API &amp; Fallback)\par
+// --------------------------------------------------------------------------\par
+\par
+function setupShareButton() \{\par
+  const shareBtn = document.getElementById("shareWebsiteBtn");\par
+  if (!shareBtn) return;\par
+\par
+  shareBtn.addEventListener("click", () =&gt; \{\par
+    const shareData = \{\par
+      title: "\f1\rtlch\lang3073\'e6\'d3\'ed\'d8\'df\f2\ltrch  \f3\u-10179?\u-9135?\u-10179?\u-8923?\f2\lang1033  \f0 Business Man \f3\u-10179?\u-8690?\u-10178?\u-8840?\f0 ",\par
+      text: "\f1\rtlch\lang3073\'ca\'da\'d1\'f8\'dd \'da\'e1\'ec \'cf\'e1\'ed\'e1 \'ce\'cf\'e3\'c7\'ca \'da\'c7\'c6\'e1\'c9 \'e6\'d3\'ed\'d8\'df \'c7\'e1\'d4\'c7\'e3\'e1: \'d4\'cd\'e4 \'cf\'e6\'e1\'ed\'a1 \'ca\'d0\'c7\'df\'d1 \'c8\'d5\'c7\'ca \'e6\'d8\'ed\'d1\'c7\'e4\'a1 \'ce\'cf\'e3\'c7\'ca \'d1\'e6\'c7\'cf \'c7\'e1\'c3\'da\'e3\'c7\'e1 \'c8\'c7\'e1\'c5\'e3\'c7\'d1\'c7\'ca\'a1 \'e3\'ca\'cc\'d1 \'da\'d2\'e6\'a1 \'e6\'e3\'cf\'cf \'dd\'e6\'e4 \'e3\'da \'df\'e6\'cf \'ce\'d5\'e3 \'cd\'d5\'d1\'ed\f0\ltrch\lang1033 !",\par
+      url: window.location.href\par
+    \};\par
+\par
+    if (navigator.share) \{\par
+      navigator.share(shareData).catch(err =&gt; console.log("\f1\rtlch\lang3073\'c5\'e1\'db\'c7\'c1 \'c7\'e1\'e3\'d4\'c7\'d1\'df\'c9\f0\ltrch\lang1033 :", err));\par
+    \} else \{\par
+      navigator.clipboard.writeText(window.location.href).then(() =&gt; \{\par
+        alert("\f1\rtlch\lang3073\'ca\'e3 \'e4\'d3\'ce \'d1\'c7\'c8\'d8 \'c7\'e1\'e3\'e6\'de\'da \'c8\'e4\'cc\'c7\'cd! \'ed\'e3\'df\'e4\'df \'c7\'e1\'c2\'e4 \'e3\'d4\'c7\'d1\'df\'ca\'e5 \'e3\'da \'c3\'d5\'cf\'de\'c7\'c6\'df \'da\'c8\'d1 \'c7\'e1\'e6\'c7\'ca\'d3\'c7\'c8 \'c3\'e6 \'e6\'d3\'c7\'c6\'e1 \'c7\'e1\'ca\'e6\'c7\'d5\'e1\f0\ltrch\lang1033 .");\par
+      \});\par
+    \}\par
+  \});\par
+\}\par
+\par
+// --------------------------------------------------------------------------\par
+// \f1\rtlch\lang3073 5\f0\ltrch\lang1033 ) \f1\rtlch\lang3073\'c7\'e1\'de\'c7\'c6\'e3\'c9 \'c7\'e1\'e3\'ca\'cc\'c7\'e6\'c8\'c9 \'e1\'e1\'cc\'e6\'c7\'e1 \'e6\'cd\'d1\'df\'c7\'ca \'c7\'e1\'ca\'e3\'d1\'ed\'d1\f0\ltrch\lang1033\par
+// --------------------------------------------------------------------------\par
+\par
+function setupNavigation() \{\par
+  const menuToggle = document.getElementById("menuToggle");\par
+  const navLinks = document.getElementById("navLinks");\par
+  if (!menuToggle || !navLinks) return;\par
+\par
+  const navItems = navLinks.querySelectorAll("a");\par
+\par
+  menuToggle.addEventListener("click", () =&gt; \{\par
+    navLinks.classList.toggle("active");\par
+  \});\par
+\par
+  navItems.forEach(item =&gt; \{\par
+    item.addEventListener("click", () =&gt; \{\par
+      navLinks.classList.remove("active");\par
+    \});\par
+  \});\par
+\}\par
+\par
+function setupScrollAnimations() \{\par
+  const animatedElements = document.querySelectorAll(\par
+    ".service-shortcut-card, .content-box, .glass-card, .offer-featured-card, .contact-col, .coupon-box"\par
+  );\par
+\par
+  const observerOptions = \{\par
+    root: null,\par
+    threshold: \f1\rtlch\lang3073 0.1\f0\ltrch\lang1033 ,\par
+    rootMargin: "\f1\rtlch\lang3073 0\f0\ltrch\lang1033 px \f1\rtlch\lang3073 0\f0\ltrch\lang1033 px -\f1\rtlch\lang3073 40\f0\ltrch\lang1033 px \f1\rtlch\lang3073 0\f0\ltrch\lang1033 px"\par
+  \};\par
+\par
+  const observer = new IntersectionObserver((entries, obs) =&gt; \{\par
+    entries.forEach(entry =&gt; \{\par
+      if (entry.isIntersecting) \{\par
+        entry.target.classList.add("fade-in-up", "visible");\par
+        obs.unobserve(entry.target);\par
+      \}\par
+    \});\par
+  \}, observerOptions);\par
+\par
+  animatedElements.forEach(el =&gt; observer.observe(el));\par
+\}\par
+\par
+// --------------------------------------------------------------------------\par
+// \f1\rtlch\lang3073 6\f0\ltrch\lang1033 ) \f1\rtlch\lang3073\'c8\'cf\'c1 \'c7\'e1\'ca\'d4\'db\'ed\'e1 \'da\'e4\'cf \'c7\'df\'ca\'e3\'c7\'e1 \'ca\'cd\'e3\'ed\'e1 \'c7\'e1\'d5\'dd\'cd\'c9\f0\ltrch\lang1033\par
+// --------------------------------------------------------------------------\par
+\par
+document.addEventListener("DOMContentLoaded", () =&gt; \{\par
+  renderTickets(TICKETS_DATA);\par
+\par
+  if (ticketSearchInput) \{\par
+    ticketSearchInput.addEventListener("input", handleTicketSearch);\par
+  \}\par
+  if (clearSearchBtn) \{\par
+    clearSearchBtn.addEventListener("click", () =&gt; \{\par
+      ticketSearchInput.value = "";\par
+      handleTicketSearch();\par
+      ticketSearchInput.focus();\par
+    \});\par
+  \}\par
+\par
+  setupCouponCopy();\par
+  setupShareButton();\par
+  setupNavigation();\par
+  setupScrollAnimations();\par
+\});\par
+```\lang9\par
+}
+ 
