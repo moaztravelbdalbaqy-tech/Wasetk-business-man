@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أهل الثقة للشحن والنقل البري | من القاهرة إلى الخرطوم</title>
+    <!-- تحميل مكتبة تايليند سي إس إس للتصميم العصري والسريع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تحميل مكتبة أيقونات FontAwesome للواجهات السهلة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        /* تخصيص تأثيرات بصرية للأزرار والبطاقات */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- شريط التنقل العلوي ومعلومات الاتصال السريع -->
+    <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-md">
+        <div class="bg-amber-600 text-xs py-1 px-4 text-center font-semibold">
+            <span>🚀 خط مستقیم آمن وسريع من القاهرة إلى الخرطوم (مخزن السجانة)</span>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
+            <!-- الشعار -->
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-500 text-slate-900 p-2.5 rounded-xl font-black text-xl shadow-inner">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight">أهل الثقة</h1>
+                    <p class="text-xs text-amber-400">لشحن ونقل العفش البري</p>
+                </div>
+            </div>
+
+            <!-- أرقام الاتصال السريع للموبايل -->
+            <div class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+                <a href="tel:01092964003" class="bg-slate-800 hover:bg-slate-700 text-amber-400 px-3 py-2 rounded-lg border border-slate-700 flex items-center gap-2 transition">
+                    <i class="fa-solid fa-phone text-emerald-400"></i>
+                    <span>مصر: 01092964003</span>
+                </a>
+                <a href="tel:0124690430" class="bg-slate-800 hover:bg-slate-700 text-amber-400 px-3 py-2 rounded-lg border border-slate-700 hidden md:flex items-center gap-2 transition">
+                    <i class="fa-solid fa-phone text-emerald-400"></i>
+                    <span>السودان: 0124690430</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- روابط التنقل السريع (Anchor Links) -->
+        <nav class="bg-slate-800/90 backdrop-blur border-t border-slate-700 px-4 py-2">
+            <div class="max-w-7xl mx-auto flex justify-center sm:justify-start gap-4 sm:gap-8 text-sm overflow-x-auto whitespace-nowrap">
+                <a href="#hero" class="hover:text-amber-400 transition font-semibold">الرئيسية</a>
+                <a href="#calculator" class="hover:text-amber-400 transition font-semibold">احسب شحنتك</a>
+                <a href="#prices" class="hover:text-amber-400 transition font-semibold">جدول الأسعار</a>
+                <a href="#tracking" class="hover:text-amber-400 transition font-semibold">تتبع شحنة</a>
+                <a href="#locations" class="hover:text-amber-400 transition font-semibold">المخازن والفروع</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- القسم الرئيسي الواجهة الترحيبية -->
+    <section id="hero" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-12 sm:py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <span class="inline-block bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
+                ✨ الأمانة والسرعة في نقل أثاثك المنزلي
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                اشحن عفشك من <span class="text-amber-400">القاهرة</span> إلى <span class="text-amber-400">الخرطوم</span> بكل راحة واطمئنان
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+                نقدم خدمات نقل العفش البري المنظم والآمن حتى مخزن السجانة. احسب تكلفتك بنفسك وأرسل طلبك مباشرة عبر واتساب بضغطة زر واحدة ودون تعقيد!
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#calculator" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl text-base shadow-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>احسب تكلفتك الآن واطلب</span>
+                </a>
+                <a href="https://wa.me/201092964003?text=مرحباً، أرجو الاستفسار عن خدمات الشحن من القاهرة إلى الخرطوم" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-base shadow-lg transition flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>تواصل مباشر واتساب</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- حاسبة الأسعار ونموذج الطلب الفوري -->
+    <section id="calculator" class="py-12 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">حاسبة الأسعار ونموذج الطلب الفوري</h3>
+            <p class="text-slate-600 text-sm mt-2">اختر الأصناف التي تريد شحنها، وسيتم حساب التكلفة الإجمالية فوراً دون أي تسجيل حساب</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- قائمة اختيار الأصناف بالبطائط الكبيرة -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-lg mb-4 text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-boxes-stacked text-amber-600"></i>
+                        <span>1. اختر القطع المراد شحنها (اضغط للزيادة أو النقصان):</span>
+                    </h4>
+                    
+                    <div id="items-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- يتم ملء العناصر برمجياً عبر الـ JavaScript لضمان سهولة الإدارة -->
+                    </div>
+                </div>
+
+                <!-- نموذج بيانات العميل المختصر -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-lg mb-4 text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-user-pen text-amber-600"></i>
+                        <span>2. بيانات الاستلام من القاهرة:</span>
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">اسم العميل بالكامل *</label>
+                            <input type="text" id="client-name" placeholder="مثال: محمد أحمد" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">رقم الهاتف (للتواصل) *</label>
+                            <input type="tel" id="client-phone" placeholder="010XXXXXXXX" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">عنوان التحميل الحالي في القاهرة *</label>
+                            <input type="text" id="client-address" placeholder="المدينة، الحي، الشارع، رقم العمارة" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- لوحة ملخص التكلفة والفاتورة -->
+            <div class="lg:col-span-1">
+                <div class="bg-slate-900 text-white p-6 rounded-2xl shadow-xl sticky top-28 space-y-6">
+                    <h4 class="font-bold text-xl border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <span>ملخص الشحنة</span>
+                        <i class="fa-solid fa-receipt text-amber-400"></i>
+                    </h4>
+
+                    <div id="selected-items-summary" class="space-y-2 text-sm max-h-48 overflow-y-auto pr-1">
+                        <p class="text-slate-400 text-xs italic">لم يتم اختيار أي قطع بعد...</p>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-4 space-y-2">
+                        <div class="flex justify-between text-sm text-slate-300">
+                            <span>عدد القطع المحددة:</span>
+                            <span id="total-items-count" class="font-bold text-white">0 قطعة</span>
+                        </div>
+                        <div class="flex justify-between items-center text-lg font-black">
+                            <span>التكلفة التقديرية:</span>
+                            <span id="total-price" class="text-amber-400 text-2xl">0 جنيه</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">* الأسعار تقريبية قابلة للتأكيد عند المعاينة أو التسليم لمخزن القاهرة.</p>
+                    </div>
+
+                    <button onclick="submitOrderViaWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-base">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>إرسال الطلب عبر واتساب</span>
+                    </button>
+                    
+                    <div class="text-center">
+                        <button onclick="resetOrder()" class="text-xs text-slate-400 hover:text-white underline transition">إعادة ضبط النموذج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- جدول الأسعار المعتمد -->
+    <section id="prices" class="py-12 px-4 max-w-5xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-200 my-8">
+        <div class="text-center mb-8">
+            <span class="text-amber-600 font-bold text-xs bg-amber-50 px-3 py-1 rounded-full border border-amber-200">دليل الأسعار الشفافة</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">أسعار شحن القطع الفردية والغرف</h3>
+            <p class="text-slate-600 text-sm mt-1">من القاهرة إلى الخرطوم (مخزن السجانة)</p>
+        </div>
+
+        <div class="overflow-x-auto px-4">
+            <table class="w-full text-right border-collapse">
+                <thead>
+                    <tr class="bg-slate-100 text-slate-700 text-xs sm:text-sm uppercase tracking-wider">
+                        <th class="p-3 sm:p-4 rounded-r-xl">اسم الصنف / القطعة</th>
+                        <th class="p-3 sm:p-4">الوصف أو القياس</th>
+                        <th class="p-3 sm:p-4 rounded-l-xl">السعر التقديري</th>
+                    </tr>
+                </thead>
+                <tbody id="price-table-body" class="divide-y divide-slate-100 text-sm">
+                    <!-- يتم ملء الجدول برمجياً بناءً على البيانات المعرفة -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- قسم تتبع الشحنة برقم الطلب -->
+    <section id="tracking" class="py-12 px-4 max-w-4xl mx-auto">
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 sm:p-10 rounded-3xl shadow-xl">
+            <div class="max-w-xl mx-auto text-center space-y-4">
+                <h3 class="text-2xl font-bold">تتبع حالة شحنتك</h3>
+                <p class="text-slate-300 text-sm">أدخل رقم الشحنة أو رقم الهاتف لمعرفة حالة النقل الحالية ومكان وجود الشحنة.</p>
+                
+                <div class="flex gap-2 pt-2">
+                    <input type="text" id="track-input" placeholder="أدخل رقم الهاتف أو رقم الشحنة..." class="flex-1 bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl text-sm focus:outline-none focus:border-amber-400">
+                    <button onclick="trackShipment()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl transition text-sm">
+                        بحث
+                    </button>
+                </div>
+
+                <div id="tracking-result" class="hidden mt-6 p-4 bg-slate-800/90 rounded-2xl border border-slate-700 text-right space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                        <span class="text-xs text-amber-400 font-semibold" id="track-status-title">حالة الشحنة</span>
+                        <span class="text-xs text-slate-400" id="track-date">تاريخ الطلب: -</span>
+                    </div>
+                    <div class="text-sm font-semibold text-white" id="track-client-info">العميل: -</div>
+                    <!-- مراحل التتبع البصرية -->
+                    <div class="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
+                        <div id="step-1" class="p-2 rounded-lg bg-slate-700 text-slate-300">1. الاستلام بالقاهرة</div>
+                        <div id="step-2" class="p-2 rounded-lg bg-slate-700 text-slate-300">2. في الطريق للخرطوم</div>
+                        <div id="step-3" class="p-2 rounded-lg bg-slate-700 text-slate-300">3. مخزن السجانة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فروع الشركة ومعلومات التواصل والمخازن -->
+    <section id="locations" class="py-12 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- مكتب القاهرة -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-amber-100 text-amber-700 p-3 rounded-xl text-xl">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">مكتب ومخزن القاهرة (مصر)</h4>
+                        <p class="text-xs text-slate-500">نستقبل الشحنات من كافة المحافظات</p>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-600 space-y-2">
+                    <p><i class="fa-solid fa-phone text-amber-600 ml-2"></i> 01092964003 / 01156584596</p>
+                    <p><i class="fa-solid fa-location-dot text-amber-600 ml-2"></i> القاهرة - مصر (اتصل لتحديد موقع الاستلام الأقرب لك)</p>
+                </div>
+            </div>
+
+            <!-- مكتب السودان -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-amber-100 text-amber-700 p-3 rounded-xl text-xl">
+                        <i class="fa-solid fa-warehouse"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">مخزن السودان (الخرطوم)</h4>
+                        <p class="text-xs text-slate-500">محطة الوصول والتسليم النهائية</p>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-600 space-y-2">
+                    <p><i class="fa-solid fa-phone text-amber-600 ml-2"></i> 0124690430</p>
+                    <p><i class="fa-solid fa-location-dot text-amber-600 ml-2"></i> الخرطوم - مخزن السجانة الرئيسي</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- شريط المشاركة الثابت في الأسفل -->
+    <div class="fixed bottom-4 left-4 z-40 flex flex-col gap-2">
+        <button onclick="shareWebsite()" class="bg-slate-900 hover:bg-slate-800 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition border border-slate-700" title="مشاركة الموقع">
+            <i class="fa-solid fa-share-nodes text-lg"></i>
+        </button>
+        <a href="https://wa.me/201092964003" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition" title="واتساب مباشر">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+        </a>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs border-t border-slate-800 mt-12">
+        <p class="font-bold text-slate-300 text-sm mb-1">شركة أهل الثقة للشحن والنقل البري</p>
+        <p>جميع الحقوق محفوظة © 2026 | النقل الآمن من القاهرة إلى الخرطوم (السجانة)</p>
+    </footer>
+
+    <!-- كود البرمجة بلغة JavaScript لإدارة الحاسبة والأصناف والتفاعل -->
+    <script>
+        // تعريف قائمة الأصناف وأسعارها التقديرية بالجنيه
+        const shippingItems = [
+            { id: 'fridge', name: 'ثلاجة / ديب فريزر', price: 4500, icon: 'fa-snowflake' },
+            { id: 'washer', name: 'غسالة أوتوماتيك', price: 3500, icon: 'fa-shirt' },
+            { id: 'cooker', name: 'بوتاجاز', price: 3500, icon: 'fa-fire-burner' },
+            { id: 'tv', name: 'تلفزيون وشاشة', price: 2500, icon: 'fa-tv' },
+            { id: 'bed', name: 'سرير مفرد / مزدوج', price: 4000, icon: 'fa-bed' },
+            { id: 'bedroom', name: 'غرفة نوم كاملة', price: 18000, icon: 'fa-door-closed' },
+            { id: 'salon', name: 'أنتريه / صالون', price: 12000, icon: 'fa-couch' },
+            { id: 'carton', name: 'كرتونة ملابس / أغراض', price: 600, icon: 'fa-box' }
+        ];
+
+        // تخزين الكميات المختارة لكل صنف
+        let selectedQuantities = {};
+
+        // تهيئة الصفحة عند التحميل
+        window.onload = function() {
+            renderItemsGrid();
+            renderPriceTable();
+        };
+
+        // دالة عرض بطاقات الأصناف التفاعلية
+        function renderItemsGrid() {
+            const gridContainer = document.getElementById('items-grid');
+            gridContainer.innerHTML = '';
+
+            shippingItems.forEach(item => {
+                const qty = selectedQuantities[item.id] || 0;
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-xl border transition flex items-center justify-between ${qty > 0 ? 'bg-amber-50/70 border-amber-500 shadow-sm' : 'bg-slate-50 border-slate-200'}`;
+                
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white p-3 rounded-xl shadow-xs text-amber-600 text-lg">
+                            <i class="fa-solid ${item.icon}"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-slate-800">${item.name}</h5>
+                            <p class="text-xs text-amber-600 font-semibold">${item.price.toLocaleString()} جنيه</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="updateQuantity('${item.id}', -1)" class="w-8 h-8 rounded-lg bg-white border border-slate-300 text-slate-700 font-bold hover:bg-slate-100 flex items-center justify-center">-</button>
+                        <span id="qty-${item.id}" class="w-6 text-center font-bold text-sm">${qty}</span>
+                        <button onclick="updateQuantity('${item.id}', 1)" class="w-8 h-8 rounded-lg bg-amber-500 border border-amber-600 text-slate-950 font-bold hover:bg-amber-400 flex items-center justify-center">+</button>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // دالة عرض جدول الأسعار
+        function renderPriceTable() {
+            const tableBody = document.getElementById('price-table-body');
+            tableBody.innerHTML = '';
+
+            shippingItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-slate-50 transition';
+                row.innerHTML = `
+                    <td class="p-3 sm:p-4 font-semibold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid ${item.icon} text-amber-600"></i>
+                        <span>${item.name}</span>
+                    </td>
+                    <td class="p-3 sm:p-4 text-slate-600">نقل بري آمن ومغلف بعناية</td>
+                    <td class="p-3 sm:p-4 font-bold text-amber-600">${item.price.toLocaleString()} جنيه</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // تحديث كمية القطع عند الضغط على الأزرار
+        function updateQuantity(itemId, change) {
+            if (!selectedQuantities[itemId]) {
+                selectedQuantities[itemId] = 0;
+            }
+            selectedQuantities[itemId] += change;
+            if (selectedQuantities[itemId] < 0) {
+                selectedQuantities[itemId] = 0;
+            }
+            renderItemsGrid();
+            updateSummary();
+        }
+
+        // تحديث الملخص والحساب الفوري
+        function updateSummary() {
+            const summaryContainer = document.getElementById('selected-items-summary');
+            summaryContainer.innerHTML = '';
+
+            let totalPrice = 0;
+            let totalCount = 0;
+            let hasItems = false;
+
+            shippingItems.forEach(item => {
+                const qty = selectedQuantities[item.id] || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    totalCount += qty;
+                    const itemTotal = qty * item.price;
+                    totalPrice += itemTotal;
+
+                    const p = document.createElement('div');
+                    p.className = 'flex justify-between text-xs text-slate-300';
+                    p.innerHTML = `<span>${item.name} (×${qty})</span> <span class="text-white font-semibold">${itemTotal.toLocaleString()} ج</span>`;
+                    summaryContainer.appendChild(p);
+                }
+            });
+
+            if (!hasItems) {
+                summaryContainer.innerHTML = '<p class="text-slate-400 text-xs italic">لم يتم اختيار أي قطع بعد...</p>';
+            }
+
+            document.getElementById('total-items-count').innerText = totalCount + ' قطعة';
+            document.getElementById('total-price').innerText = totalPrice.toLocaleString() + ' جنيه';
+        }
+
+        // إعادة ضبط النموذج
+        function resetOrder() {
+            selectedQuantities = {};
+            document.getElementById('client-name').value = '';
+            document.getElementById('client-phone').value = '';
+            document.getElementById('client-address').value = '';
+            renderItemsGrid();
+            updateSummary();
+        }
+
+        // إرسال الطلب عبر واتساب مع رسالة جاهزة
+        function submitOrderViaWhatsApp() {
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const address = document.getElementById('client-address').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('عذراً، يرجى إدخال (الاسم، رقم الهاتف، وعنوان التحميل في القاهرة) لإتمام الطلب.');
+                return;
+            }
+
+            let orderDetails = '';
+            let totalPrice = 0;
+            let hasItems = false;
+
+            shippingItems.forEach(item => {
+                const qty = selectedQuantities[item.id] || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    orderDetails += `- ${item.name}: ${qty} قطعة\n`;
+                    totalPrice += qty * item.price;
+                }
+            });
+
+            if (!hasItems) {
+                alert('يرجى اختيار صنف واحد على الأقل للشحن.');
+                return;
+            }
+
+            // تجهيز نص رسالة واتساب
+            const message = `📦 *طلب شحن جديد - أهل الثقة*\n\n` +
+                            `👤 *الاسم:* ${name}\n` +
+                            `📞 *الهاتف:* ${phone}\n` +
+                            `📍 *العنوان بالقاهرة:* ${address}\n\n` +
+                            `📋 *الأصناف المطلوبة:*\n${orderDetails}\n` +
+                            `💰 *التكلفة التقديرية:* ${totalPrice.toLocaleString()} جنيه\n\n` +
+                            `يرجى تأكيد موعد الاستلام ومخزن السجانة. شكراً لكم.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/201092964003?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // دالة محاكاة تتبع الشحنة
+        function trackShipment() {
+            const query = document.getElementById('track-input').value.trim();
+            const resultBox = document.getElementById('tracking-result');
+
+            if (!query) {
+                alert('يرجى إدخال رقم الشحنة أو رقم الهاتف للبحث.');
+                return;
+            }
+
+            resultBox.classList.remove('hidden');
+            document.getElementById('track-status-title').innerText = 'حالة الشحنة: في الطريق إلى الخرطوم';
+            document.getElementById('track-date').innerText = 'تاريخ الطلب: نشط حالياً';
+            document.getElementById('track-client-info').innerText = 'بحث برقم: ' + query;
+
+            // تلوين مراحل التتبع للعرض التفاعلي
+            document.getElementById('step-1').className = 'p-2 rounded-lg bg-emerald-600 text-white font-bold';
+            document.getElementById('step-2').className = 'p-2 rounded-lg bg-amber-500 text-slate-950 font-bold';
+            document.getElementById('step-3').className = 'p-2 rounded-lg bg-slate-700 text-slate-300';
+        }
+
+        // دالة مشاركة الموقع أو نسخ الرابط
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'شركة أهل الثقة للشحن والنقل البري',
+                    text: 'اشحن عفشك من القاهرة إلى الخرطوم (مخزن السجانة) بأمان وسرعة وبأفضل الأسعار.',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = window.location.href;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                alert('تم نسخ رابط الموقع بنجاح! يمكنك مشاركته الآن عبر أي تطبيق.');
+            }
+        }
+    </script>
+</body>
+</html>

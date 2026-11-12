@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="dashboard">
+  <meta name="design-style" content="neon_noir">
+  <title>عائلة وسيطك | Business Man 👑🔥</title>
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      /* Page & Surfaces */
+      --background: #080a10;
+      --surface-container-low: #0e121b;
+      --surface-container: #131926;
+      --surface-container-high: #1a2233;
+      --surface-glass: rgba(19, 25, 38, 0.78);
+      --surface-glass-high: rgba(26, 34, 51, 0.88);
+
+      /* Typography */
+      --on-surface: #f3f6fc;
+      --on-surface-variant: #9aa7be;
+      --on-surface-muted: #6b778d;
+
+      /* Borders & Lines */
+      --outline: #222d42;
+      --outline-variant: #182030;
+      --outline-lit: rgba(25, 227, 193, 0.4);
+
+      /* Custom Brand Accents requested */
+      --primary: #19e3c1;
+      --on-primary: #04251e;
+      --primary-container: #0b453b;
+      --on-primary-container: #c4f9f0;
+
+      --secondary: #ff8a3d;
+      --on-secondary: #2f1300;
+      --secondary-container: #4f2508;
+      --on-secondary-container: #ffdfcb;
+
+      /* Semantics */
+      --positive: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --focus: var(--primary);
+
+      /* Series for charts/indicators */
+      --data-1: #19e3c1;
+      --data-2: #ff8a3d;
+      --data-3: #f59e0b;
+      --data-4: #8b5cf6;
+      --data-context: #4b5563;
+
+      /* Fonts */
+      --font-headline: 'Cairo', sans-serif;
+      --font-body: 'Cairo', sans-serif;
+      --font-label: 'Cairo', monospace;
+
+      /* Type Scale (Dashboard/Tool ratio) */
+      --display-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.5rem);
+      --headline-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.7rem);
+      --subhead-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+      --body-size: clamp(0.92rem, 0.88rem + 0.15vw, 1rem);
+      --label-size: 0.8rem;
+
+      /* Spacing Scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.25rem;
+      --space-2xl: 3.5rem;
+      --space-3xl: 5rem;
+
+      /* Radii */
+      --rounded-sm: 0.375rem;
+      --rounded: 0.625rem;
+      --rounded-lg: 1rem;
+      --rounded-full: 9999px;
+
+      /* Glow & Glass Effects */
+      --glow-primary: 0 0 16px rgba(25, 227, 193, 0.35);
+      --glow-secondary: 0 0 16px rgba(255, 138, 61, 0.35);
+      --glow-text-primary: 0 0 8px rgba(25, 227, 193, 0.5);
+      --glow-text-secondary: 0 0 8px rgba(255, 138, 61, 0.5);
+      --glass-blur: blur(14px);
+      --neon-inset-primary: inset 0 0 14px rgba(25, 227, 193, 0.08);
+      --neon-inset-secondary: inset 0 0 14px rgba(255, 138, 61, 0.08);
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 200ms;
+      --dur-long: 380ms;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: clip;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      direction: rtl;
+      text-align: right;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 85% 15%, rgba(25, 227, 193, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 15% 75%, rgba(255, 138, 61, 0.06) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    header {
+      position: static !important;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    /* Layout Container */
+    .page-grid {
+      display: grid;
+      gap: var(--space-xl);
+      padding: var(--space-md) var(--space-lg) var(--space-3xl);
+      max-width: 1240px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * {
+      min-width: 0;
+    }
+
+    /* Utility Classes */
+    .glass-card {
+      background: var(--surface-glass);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      position: relative;
+      transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .glass-card:hover {
+      border-color: rgba(25, 227, 193, 0.3);
+    }
+    .glass-card-orange:hover {
+      border-color: rgba(255, 138, 61, 0.3);
+    }
+
+    .neon-border-teal {
+      border: 1px solid rgba(25, 227, 193, 0.32);
+      box-shadow: var(--neon-inset-primary);
+    }
+    .neon-border-orange {
+      border: 1px solid rgba(255, 138, 61, 0.32);
+      box-shadow: var(--neon-inset-secondary);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      text-shadow: var(--glow-text-primary);
+      margin-bottom: var(--space-xs);
+    }
+    .kicker-orange {
+      color: var(--secondary);
+      text-shadow: var(--glow-text-secondary);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--rounded-full);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background: var(--surface-container-high);
+      border: 1px solid var(--outline);
+      color: var(--on-surface-variant);
+      white-space: nowrap;
+    }
+    .badge-teal {
+      background: rgba(25, 227, 193, 0.12);
+      border-color: rgba(25, 227, 193, 0.4);
+      color: var(--primary);
+    }
+    .badge-orange {
+      background: rgba(255, 138, 61, 0.12);
+      border-color: rgba(255, 138, 61, 0.4);
+      color: var(--secondary);
+    }
+    .badge-green {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: rgba(34, 197, 94, 0.4);
+      color: var(--positive);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--rounded);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  border-color var(--dur-short) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-out);
+      border: 1px solid transparent;
+      user-select: none;
+      min-height: 44px;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .btn-teal {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-teal:hover {
+      box-shadow: var(--glow-primary);
+      background: #28f0cf;
+    }
+    .btn-teal-outline {
+      background: rgba(25, 227, 193, 0.08);
+      color: var(--primary);
+      border-color: rgba(25, 227, 193, 0.45);
+    }
+    .btn-teal-outline:hover {
+      background: rgba(25, 227, 193, 0.18);
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+
+    .btn-orange {
+      background: var(--secondary);
+      color: var(--on-secondary);
+      border-color: var(--secondary);
+    }
+    .btn-orange:hover {
+      box-shadow: var(--glow-secondary);
+      background: #ff9d59;
+    }
+    .btn-orange-outline {
+      background: rgba(255, 138, 61, 0.08);
+      color: var(--secondary);
+      border-color: rgba(255, 138, 61, 0.45);
+    }
+    .btn-orange-outline:hover {
+      background: rgba(255, 138, 61, 0.18);
+      border-color: var(--secondary);
+      box-shadow: var(--glow-secondary);
+    }
+
+    .btn-ghost {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+      border-color: var(--outline);
+    }
+    .btn-ghost:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Top Masthead & Hero */
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-lg) var(--space-xl);
+      border-radius: var(--rounded-lg);
+      background: linear-gradient(135deg, rgba(25, 227, 193, 0.07) 0%, rgba(19, 25, 38, 0.85) 60%, rgba(255, 138, 61, 0.07) 100%);
+      border: 1px solid var(--outline);
+      position: relative;
+      overflow: hidden;
+    }
+    .masthead::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+    }
+
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .brand-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--rounded);
+      background: linear-gradient(135deg, rgba(25, 227, 193, 0.2), rgba(255, 138, 61, 0.2));
+      border: 1px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: var(--glow-primary);
+    }
+    .brand-titles h1 {
+      font-size: var(--display-size);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .brand-titles p {
+      color: var(--on-surface-variant);
+      font-size: var(--subhead-size);
+      margin-top: 0.15rem;
+    }
+
+    /* Coupon Ribbon */
+    .coupon-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      background: linear-gradient(90deg, rgba(255, 138, 61, 0.14), rgba(25, 227, 193, 0.12));
+      border: 1px dashed rgba(255, 138, 61, 0.5);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .coupon-info {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .coupon-tag-code {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--surface-container-high);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--rounded-sm);
+      border: 1px solid var(--secondary);
+      box-shadow: var(--glow-secondary);
+      user-select: all;
+    }
+    .coupon-note {
+      font-size: 0.88rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Quick Filter Nav Pills */
+    .service-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      overflow-x: auto;
+      padding-bottom: var(--space-xs);
+      scrollbar-width: thin;
+      scrollbar-color: var(--outline) transparent;
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 0.5rem 1rem;
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--dur-short) var(--ease-out);
+    }
+    .nav-pill:hover, .nav-pill.active {
+      background: rgba(25, 227, 193, 0.14);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--glow-primary);
+    }
+
+    /* Section Headers */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--outline-variant);
+      padding-bottom: var(--space-sm);
+    }
+    .section-title-wrap h2 {
+      font-size: var(--headline-size);
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .section-title-wrap p {
+      color: var(--on-surface-variant);
+      font-size: 0.92rem;
+      margin-top: 0.2rem;
+    }
+
+    /* 2D Responsive Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    /* Info Metric Cards */
+    .stat-tile {
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .stat-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-muted);
+      font-weight: 600;
+    }
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .stat-value.teal {
+      color: var(--primary);
+      text-shadow: var(--glow-text-primary);
+    }
+    .stat-value.orange {
+      color: var(--secondary);
+      text-shadow: var(--glow-text-secondary);
+    }
+
+    /* Table Styles */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline);
+      background: var(--surface-container-low);
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.94rem;
+    }
+    table.data-table th {
+      background: var(--surface-container);
+      padding: var(--space-md);
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 1px solid var(--outline);
+      white-space: nowrap;
+    }
+    table.data-table td {
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      color: var(--on-surface);
+      vertical-align: middle;
+    }
+    table.data-table tr:hover td {
+      background: rgba(25, 227, 193, 0.04);
+    }
+    table.data-table tr.highlighted td {
+      background: rgba(255, 138, 61, 0.08);
+    }
+
+    /* Search & Filter Controls */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+      background: var(--surface-container);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline);
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+      min-width: 220px;
+    }
+    .input-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+    .input-field {
+      width: 100%;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded-sm);
+      padding: 0.65rem var(--space-md);
+      color: var(--on-surface);
+      outline: none;
+      transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .input-field:focus {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+
+    /* Interactive Calculator / Box Builder */
+    .calculator-box {
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+    }
+    .calc-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .result-banner {
+      background: linear-gradient(135deg, rgba(25, 227, 193, 0.1), rgba(255, 138, 61, 0.1));
+      border: 1px solid var(--primary);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .result-val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    /* Contact Card & Directory */
+    .contact-card {
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      position: relative;
+    }
+    .contact-card:hover {
+      border-color: var(--primary);
+    }
+    .phone-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface-container-low);
+      padding: 0.45rem 0.75rem;
+      border-radius: var(--rounded-sm);
+      border: 1px solid var(--outline-variant);
+      margin-top: 0.2rem;
+    }
+    .phone-number {
+      font-family: var(--font-label);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      direction: ltr;
+      color: #ffffff;
+    }
+
+    /* Checklist Item */
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      cursor: pointer;
+      user-select: none;
+      transition: all var(--dur-short) var(--ease-out);
+    }
+    .check-item:hover {
+      border-color: var(--primary);
+    }
+    .check-item.checked {
+      background: rgba(25, 227, 193, 0.08);
+      border-color: var(--primary);
+    }
+    .check-box-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 2px solid var(--outline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all var(--dur-short) var(--ease-out);
+    }
+    .check-item.checked .check-box-icon {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Product Cards in Store */
+    .offer-tier-card {
+      background: var(--surface-container);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--dur-short) var(--ease-out);
+    }
+    .offer-tier-card:hover, .offer-tier-card.selected {
+      border-color: var(--secondary);
+      background: rgba(255, 138, 61, 0.09);
+      box-shadow: var(--glow-secondary);
+      transform: translateY(-2px);
+    }
+    .tier-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+    .tier-price {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--secondary);
+    }
+    .tier-saving {
+      font-size: 0.8rem;
+      color: var(--positive);
+      font-weight: 600;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--rounded-full);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.65);
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      background: var(--surface-glass-high);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--primary);
+      box-shadow: var(--glow-primary);
+      color: #ffffff;
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transform: translateY(100px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out);
+    }
+    .toast-notice.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Footer */
+    footer.portal-footer {
+      border-top: 1px solid var(--outline);
+      padding: var(--space-2xl) 0 var(--space-lg);
+      text-align: center;
+      color: var(--on-surface-variant);
+      margin-top: var(--space-xl);
+    }
+    .footer-signature {
+      background: var(--surface-container);
+      border: 1px solid rgba(255, 138, 61, 0.4);
+      display: inline-block;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: var(--space-md);
+      box-shadow: var(--glow-secondary);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-lg);
+      }
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .coupon-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .floating-whatsapp {
+        bottom: 16px;
+        left: 16px;
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notification System -->
+  <div id="toast" class="toast-notice" role="alert" aria-live="polite">
+    <span id="toast-icon">✨</span>
+    <span id="toast-message">تمت العملية بنجاح!</span>
+  </div>
+
+  <main class="page-grid">
+
+    <!-- 0. Main Masthead / Hero -->
+    <header class="masthead">
+      <div class="masthead-top">
+        <div class="brand-identity">
+          <div class="brand-icon-box" aria-hidden="true">👑</div>
+          <div class="brand-titles">
+            <span class="kicker">البوابة الإلكترونية الموحدة لخدمات عائلة وسيطك</span>
+            <h1>عائلة وسيطك 👑🔥 Business Man 😎🥸</h1>
+            <p>الشحن الدولي البري والجوي • حجز تذاكر البصات والطيران • خدمات رجال الأعمال • متجر عزو • مدد فون</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+          <span class="badge badge-teal">تحديثات أسعار أكتوبر 2026</span>
+          <span class="badge badge-orange">خدمة استلام من البيت</span>
+          <span class="badge badge-green">عمرة 920 ريال</span>
+        </div>
+      </div>
+
+      <!-- Coupon Promo Bar -->
+      <div class="coupon-card">
+        <div class="coupon-info">
+          <span style="font-size: 1.4rem;" aria-hidden="true">🎁</span>
+          <div>
+            <div style="font-weight: 800; color: #ffffff;">كود الخصم الحصري لكل الخدمات:</div>
+            <div class="coupon-note">أذكر الكود عند الحجز أو الطلب للحصول على خصمك الفوري والتأكيد 😁🤍</div>
+          </div>
+          <div class="coupon-tag-code" id="couponCodeDisplay">أنا من طرف وسيطك 😎👑💪</div>
+        </div>
+        <div style="display: flex; gap: var(--space-sm);">
+          <button type="button" class="btn btn-orange" onclick="copyCouponCode()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            نسخ كود الخصم
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Section Anchor Pills -->
+      <nav class="service-nav" aria-label="أقسام الخدمات">
+        <button type="button" class="nav-pill active" onclick="scrollToSection('shippingSection')">🚚 الشحن والنقل</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('busTicketsSection')">🚌 تذاكر البصات 2026</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('aviationSection')">✈️ الطيران والعمرة</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('uaeSection')">🏢 فرع الإمارات (عجمان)</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('ezzoSection')">👕 متجر عزو أونلاين</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('madadSection')">📱 مدد فون (صيانة وهواتف)</button>
+        <button type="button" class="nav-pill" onclick="scrollToSection('contactsSection')">📞 دليل الفروع والتواصل</button>
+      </nav>
+    </header>
+
+    <!-- 1. الشحن والنقل (مصر - السودان) -->
+    <section id="shippingSection" class="glass-card neon-border-teal">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker">🚚 الشحن الدولي الموثوق</span>
+          <h2>الشحن والنقل البري والجوي (أهل الثقة + القرشي وسيطك)</h2>
+          <p>شحن آمن وشامل مصر ⇄ السودان للأثاث، الأجهزة الكهربائية، البضائع التجارية مع خدمة استلام من البيت</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs);">
+          <span class="badge badge-teal">إدارة: أ. معاذ عبد الباقي خليل</span>
+        </div>
+      </div>
+
+      <!-- Info Highlights Grid -->
+      <div class="grid-3" style="margin-bottom: var(--space-lg);">
+        <div class="stat-tile">
+          <span class="stat-label">📍 مستودع الخرطوم المعتمد</span>
+          <span class="stat-value" style="font-size: 1.15rem;">السجانة</span>
+          <span style="font-size: 0.85rem; color: var(--on-surface-variant); margin-top: 4px;">استلام وتسليم آمن ومجهز بكامل وسائل الحماية</span>
+          <div class="phone-row" style="margin-top: 8px;">
+            <span style="font-size: 0.82rem; color: var(--primary);">هاتف المخزن:</span>
+            <span class="phone-number"><bdi>+249 116 558 290</bdi></span>
+          </div>
+        </div>
+
+        <div class="stat-tile">
+          <span class="stat-label">📍 مكتب واستلام القاهرة</span>
+          <span class="stat-value" style="font-size: 1.15rem;">موقف المساكن بعد ميدان الساعة</span>
+          <span style="font-size: 0.85rem; color: var(--on-surface-variant); margin-top: 4px;">خدمة استلام الشحنات من باب منزلك بالقاهرة</span>
+          <div class="phone-row" style="margin-top: 8px;">
+            <span style="font-size: 0.82rem; color: var(--secondary);">إدارة الشحن:</span>
+            <span class="phone-number"><bdi>01095143939</bdi></span>
+          </div>
+        </div>
+
+        <div class="stat-tile">
+          <span class="stat-label">🛡️ مميزات الشحن مع أهل الثقة</span>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; margin-top: 6px;">
+            <div>✅ نقل الأثاث والأجهزة بدون تجريح أو تلف</div>
+            <div>✅ سرعة التوصيل ومرونة المواعيد</div>
+            <div>✅ خصم خاص عند استخدام كود وسيطك</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Shipping Estimator -->
+      <div class="calculator-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md); flex-wrap: wrap; gap: var(--space-sm);">
+          <h3 style="font-size: 1.15rem; color: #ffffff; display: flex; align-items: center; gap: 8px;">
+            <span>🧮</span> حاسبة تكلفة الشحن التقديرية والاستفسار المباشر
+          </h3>
+          <span class="badge badge-teal">تطبق نسبة كود الخصم فورياً</span>
+        </div>
+
+        <div class="calc-row">
+          <div class="input-group">
+            <label class="input-label" for="cargoType">نوع الشحنة:</label>
+            <select id="cargoType" class="input-field" onchange="calculateShipping()">
+              <option value="furniture">أثاث ومفروشات منزلية</option>
+              <option value="appliances">أجهزة كهربائية ومنزلية (شاشات، ثلاجات، غسالات)</option>
+              <option value="cartons">كراتين وملابس وطرود شخصية</option>
+              <option value="commercial">بضائع ومستلزمات تجارية</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="cargoSize">الحجم / الكمية التقديرية:</label>
+            <select id="cargoSize" class="input-field" onchange="calculateShipping()">
+              <option value="small">شحنة صغيرة / طرد فردي (1 - 3 كراتين)</option>
+              <option value="medium" selected>شحنة متوسطة (غرفة أو مجموعة أجهزة)</option>
+              <option value="large">شحنة كبيرة (عفش شقة أو بضاعة تجارية)</option>
+              <option value="huge">شحنة ضخمة (كونتنر أو تجهيز كامل)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="pickupOption">مكان الاستلام:</label>
+            <select id="pickupOption" class="input-field" onchange="calculateShipping()">
+              <option value="home">من باب البيت بالقاهرة (خدمة مميزة)</option>
+              <option value="depot">تسليم بمقرنا بموقف المساكن (ميدان الساعة)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="result-banner">
+          <div>
+            <div style="font-size: 0.88rem; color: var(--on-surface-variant);">الحالة التقديرية والخصم:</div>
+            <div id="shippingEstimateSummary" style="font-weight: 700; color: #ffffff; margin-top: 2px;">
+              شحنة متوسطة - استلام من البيت مع تطبيق كود وسيطك 🔥
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
+            <div style="text-align: left;">
+              <span style="font-size: 0.8rem; color: var(--primary);">تأكيد الخصم:</span>
+              <div class="result-val" id="shippingDiscountBadge">خصم ساري ✔️</div>
+            </div>
+            <button type="button" class="btn btn-teal" onclick="sendShippingInquiry()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              طلب استلام الشحنة وتثبيت الحجز
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. تذاكر البصات من القاهرة إلى السودان (أكتوبر 2026) -->
+    <section id="busTicketsSection" class="glass-card neon-border-orange">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker kicker-orange">🚌 النقل البري المباشر</span>
+          <h2>تذاكر البصات (القاهرة ← ولايات السودان) - تحديث أكتوبر 2026</h2>
+          <p>جدول الأسعار الرسمي بالجنيه المصري (EGP) مع بحث فوري، فرز، وحاسبة للمجموعات وحجز فوري</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs); flex-wrap: wrap;">
+          <span class="badge badge-orange">تحديث أكتوبر 2026</span>
+          <span class="badge badge-teal">11 وجهة متاحة</span>
+        </div>
+      </div>
+
+      <!-- Interactive Filters & Search -->
+      <div class="filter-bar">
+        <div class="input-group" style="flex: 2;">
+          <label class="input-label" for="busSearchInput">بحث سريع باسم المدينة أو الولاية:</label>
+          <input type="text" id="busSearchInput" class="input-field" placeholder="ابحث مثلاً: الخرطوم، مدني، كسلا، بورتسودان..." oninput="filterBusTable()">
+        </div>
+
+        <div class="input-group" style="flex: 1;">
+          <label class="input-label" for="busSortSelect">ترتيب حسب:</label>
+          <select id="busSortSelect" class="input-field" onchange="sortBusTable()">
+            <option value="default">الترتيب الافتراضي</option>
+            <option value="price-asc">السعر: من الأقل للأعلى</option>
+            <option value="price-desc">السعر: من الأعلى للأقل</option>
+            <option value="name-asc">اسم الوجهة أبجدياً</option>
+          </select>
+        </div>
+
+        <div class="input-group" style="flex: 1;">
+          <label class="input-label" for="busPriceFilter">نطاق السعر:</label>
+          <select id="busPriceFilter" class="input-field" onchange="filterBusTable()">
+            <option value="all">كافة الأسعار</option>
+            <option value="under-3500">حتى 3000 - 3600 ج.م</option>
+            <option value="3700-4000">من 3700 إلى 4000 ج.م</option>
+            <option value="above-4000">أكثر من 4000 ج.م</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Bus Table -->
+      <div class="table-responsive">
+        <table class="data-table" id="busTicketsTable" aria-label="جدول أسعار تذاكر البصات من القاهرة إلى السودان">
+          <thead>
+            <tr>
+              <th scope="col">الوجهة (المدينة / الولاية)</th>
+              <th scope="col">سعر التذكرة للفرد (جنيه مصري)</th>
+              <th scope="col">كود الخصم وسيطك</th>
+              <th scope="col">ملاحظات المسار</th>
+              <th scope="col" style="text-align: center;">إجراء الحجز</th>
+            </tr>
+          </thead>
+          <tbody id="busTableBody">
+            <!-- Populated dynamically via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Group Fare Calculator -->
+      <div class="calculator-box" style="margin-top: var(--space-lg); background: var(--surface-container-low);">
+        <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: var(--space-md); display: flex; align-items: center; gap: 8px;">
+          <span>👥</span> حاسبة تذاكر العائلات والمجموعات مع تطبيق كود وسيطك
+        </h3>
+        <div class="calc-row">
+          <div class="input-group">
+            <label class="input-label" for="groupDestination">اختر وجهة السفر:</label>
+            <select id="groupDestination" class="input-field" onchange="calcGroupFares()">
+              <!-- Options populated by JS -->
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="passengerCount">عدد المسافرين (أفراد / عائلة):</label>
+            <input type="number" id="passengerCount" class="input-field" min="1" max="50" value="2" oninput="calcGroupFares()">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="groupDiscountApply">تفعيل كود الخصم (أنا من طرف وسيطك):</label>
+            <select id="groupDiscountApply" class="input-field" onchange="calcGroupFares()">
+              <option value="yes" selected>نعم، تأكيد الخصم المعتمد ✔️</option>
+              <option value="no">بدون كود خصم</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="result-banner" style="background: rgba(255, 138, 61, 0.1); border-color: var(--secondary);">
+          <div>
+            <div style="font-size: 0.88rem; color: var(--on-surface-variant);">إجمالي تذاكر الرحلة:</div>
+            <div id="groupCalcDetails" style="font-weight: 700; color: #ffffff;">2 تذاكر إلى الخرطوم</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--secondary);">المبلغ الإجمالي (جنيه مصري):</span>
+              <div class="result-val" style="color: var(--secondary);" id="groupTotalCost">6,000 ج.م</div>
+            </div>
+            <button type="button" class="btn btn-orange" onclick="bookGroupTickets()">
+              تأكيد حجز التذاكر الآن
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. الطيران وتأشيرة العمرة والتصاريح الأمنية (وكالة أبشيبة + وكالة البراري) -->
+    <section id="aviationSection" class="glass-card neon-border-teal">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker">✈️ السفر الدولي والتصاريح</span>
+          <h2>السفر والطيران: وكالة أبشيبة بالشراكة مع وكالة البراري (السودان)</h2>
+          <p>تذاكر طيران لجميع المطارات • موافقات أمنية سريعة • عبور حدود برية وجوية دون وجع رأس</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs);">
+          <span class="badge badge-teal">رقم الوكالة: <bdi dir="ltr">01159619986</bdi></span>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: var(--space-lg);">
+        <!-- Umrah Featured Special Offer Card -->
+        <div class="glass-card neon-border-orange" style="background: linear-gradient(135deg, rgba(255, 138, 61, 0.12), rgba(19, 25, 38, 0.9));">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-sm);">
+            <span class="badge badge-orange" style="font-size: 0.95rem;">🕋 عرض العمرة المعتمد</span>
+            <span class="kicker kicker-orange" style="font-size: 1.15rem; font-weight: 900;">920 ريال سعودي</span>
+          </div>
+          <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 0.3rem;">تأشيرة عمرة بدون خدمات (إصدار سريع وموثق)</h3>
+          <p style="color: var(--on-surface-variant); font-size: 0.92rem; margin-bottom: var(--space-md);">
+            إصدار نظامي معتمد وفوري للراغبين بأداء مناسك العمرة بالتعاون المباشر مع المنصات السعودية المعتمدة.
+          </p>
+
+          <div style="background: var(--surface-container); border: 1px solid var(--outline); border-radius: var(--rounded); padding: var(--space-md); margin-bottom: var(--space-md);">
+            <div style="font-weight: 700; color: var(--secondary); margin-bottom: 0.4rem; font-size: 0.95rem;">
+              المستندات والمتطلبات المطلوبة للإصدار السريع:
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--positive);">✔</span> <strong>صورة جواز سفر ساري</strong> بجودة واضحة ومقروءة.
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--positive);">✔</span> <strong>صورة هوية الكفيل</strong> مستخرجة من منصة أبشر.
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--positive);">✔</span> <strong>رقم جوال الكفيل</strong> المعتمد والمربوط بحساب أبشر.
+              </li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-sm);">
+            <span class="badge badge-teal">تأكيد الخصم بكود وسيطك</span>
+            <button type="button" class="btn btn-orange" onclick="requestUmrahPackage()">
+              تقديم طلب تأشيرة العمرة
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Document Readiness Checker -->
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+            <h3 style="font-size: 1.15rem; color: #ffffff;">📋 فحص جهوزية أوراق التأشيرة والسفر</h3>
+            <span class="badge badge-teal" id="docsProgressText">0 من 3 جاهز</span>
+          </div>
+          <p style="color: var(--on-surface-variant); font-size: 0.88rem; margin-bottom: var(--space-md);">
+            حدد المستندات المتوفرة لديك للتأكد من إمكانية التقديم الفوري اليوم:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-md);">
+            <div class="check-item" id="checkDoc1" onclick="toggleDocCheck(1)">
+              <div class="check-box-icon" id="boxDoc1"></div>
+              <div>
+                <div style="font-weight: 700; color: #ffffff;">جواز سفر واضح وساري المفعول</div>
+                <div style="font-size: 0.82rem; color: var(--on-surface-variant);">صلاحية لا تقل عن 6 أشهر مع وضوح البيانات والصفحات</div>
+              </div>
+            </div>
+
+            <div class="check-item" id="checkDoc2" onclick="toggleDocCheck(2)">
+              <div class="check-box-icon" id="boxDoc2"></div>
+              <div>
+                <div style="font-weight: 700; color: #ffffff;">صورة هوية الكفيل من "أبشر"</div>
+                <div style="font-size: 0.82rem; color: var(--on-surface-variant);">صورة واضحة لهوية الإقامة أو الهوية الوطنية للمستضيف</div>
+              </div>
+            </div>
+
+            <div class="check-item" id="checkDoc3" onclick="toggleDocCheck(3)">
+              <div class="check-box-icon" id="boxDoc3"></div>
+              <div>
+                <div style="font-weight: 700; color: #ffffff;">رقم جوال الكفيل المعتمد</div>
+                <div style="font-size: 0.82rem; color: var(--on-surface-variant);">رقم مسجل بنظام أبشر لاستقبال رمز التحقق السريع</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-container-low); padding: var(--space-md); border-radius: var(--rounded); border: 1px solid var(--outline); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-sm);">
+            <span id="docsReadyStatus" style="font-weight: 700; color: var(--on-surface-variant); font-size: 0.92rem;">
+              يرجى تحديد المستندات الثلاثة للبدء في الإجراءات
+            </span>
+            <button type="button" class="btn btn-teal-outline" onclick="contactAgencyDirect()">
+              مراسلة وكالة أبشيبة (01159619986)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. فرع الإمارات (عجمان النعيمية): وكالة Pink + شركة أبو عبد ربه -->
+    <section id="uaeSection" class="glass-card neon-border-orange">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker kicker-orange">🇦🇪 فرع دولة الإمارات العربية المتحدة</span>
+          <h2>فرع عجمان - النعيمية: خدمات رجال الأعمال وتنظيف المباني</h2>
+          <p>تأسيس شركات، معاملات حكومية، خدمات مستثمرين، وخدمات تنظيف وصيانة المباني الشاملة</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs);">
+          <span class="badge badge-orange">عجمان - النعيمية</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Pink Agency for Business Services -->
+        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+              <span class="badge badge-teal" style="font-weight: 800;">Business Man 🔥</span>
+              <span style="font-size: 1.3rem;">🏢</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 0.35rem;">وكالة Pink لخدمات رجال الأعمال</h3>
+            <p style="color: var(--on-surface-variant); font-size: 0.92rem; margin-bottom: var(--space-md);">
+              الوجهة المثالية لتأسيس الرخص والشركات في الإمارات، إصدار الإقامات وتجديدها، ومتابعة كافة المعاملات الحكومية ورجال الأعمال بسرعة واحترافية.
+            </p>
+
+            <div style="background: var(--surface-container); border: 1px solid var(--outline); border-radius: var(--rounded); padding: var(--space-md); margin-bottom: var(--space-md);">
+              <div style="font-size: 0.85rem; color: var(--on-surface-muted); margin-bottom: 4px;">الهاتف والواتساب المباشر:</div>
+              <div class="phone-row">
+                <span style="color: var(--primary); font-weight: 700;">خدمات رجال الأعمال:</span>
+                <span class="phone-number"><bdi>+971 56 160 0333</bdi></span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-teal" style="flex: 1;" onclick="contactUAEBusiness()">
+              تواصل مع وكالة Pink
+            </button>
+            <button type="button" class="btn btn-ghost" onclick="copyText('+971561600333', 'رقم وكالة Pink')">
+              نسخ الرقم
+            </button>
+          </div>
+        </div>
+
+        <!-- Abo Abdrubbo Cleaning Services -->
+        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+              <span class="badge badge-orange" style="font-weight: 800;">نظافة واحترافية ✨</span>
+              <span style="font-size: 1.3rem;">🧹</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 0.35rem;">شركة أبو عبد ربه لتنظيف المباني</h3>
+            <p style="color: var(--on-surface-variant); font-size: 0.92rem; margin-bottom: var(--space-md);">
+              تنظيف متخصص للفلل، الأبراج والمباني السكنية والتجارية، والمكاتب بأحدث معدات التعقيم مع طاقم مدرب ومعتمد في إمارة عجمان وكافة الإمارات.
+            </p>
+
+            <div style="background: var(--surface-container); border: 1px solid var(--outline); border-radius: var(--rounded); padding: var(--space-md); margin-bottom: var(--space-md); display: flex; flex-direction: column; gap: 8px;">
+              <div class="phone-row">
+                <span style="color: var(--secondary); font-weight: 700;">هاتف الحجوزات:</span>
+                <span class="phone-number"><bdi>+971 54 428 9536</bdi></span>
+              </div>
+              <div class="phone-row">
+                <span style="color: var(--on-surface-variant); font-size: 0.85rem;">البريد الإلكتروني:</span>
+                <span style="direction: ltr; font-size: 0.85rem; color: #ffffff;">aboabdrubbo@gmail.com</span>
+              </div>
+              <div style="display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-top: 4px;">
+                <span class="badge">Facebook: أبو عبد ربه للتنظيف</span>
+                <span class="badge">Instagram: @abo_abdrubbo_cleaning_services</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-orange" style="flex: 1;" onclick="contactCleaningServices()">
+              طلب خدمات التنظيف
+            </button>
+            <button type="button" class="btn btn-ghost" onclick="copyText('+971544289536', 'رقم شركة أبو عبد ربه')">
+              نسخ الرقم
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. متجر عزو أونلاين (ملابس وإلكترونيات وعروض البناطيل الرياضية) -->
+    <section id="ezzoSection" class="glass-card neon-border-teal">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker">👕 التسوق والأزياء</span>
+          <h2>متجر عزو أونلاين (Ezzo Online Store)</h2>
+          <p>ملابس وإكسسوارات • أدوات منزلية • إلكترونيات • عروض بناطيل رياضية فاخرة (11 لون، مقاسات M حتى 6XL)</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs); flex-wrap: wrap;">
+          <span class="badge badge-teal">المتجر: <bdi dir="ltr">2219412.eg.dukan.shop</bdi></span>
+          <span class="badge badge-orange">واتساب: <bdi dir="ltr">01157502095</bdi></span>
+        </div>
+      </div>
+
+      <!-- Pricing Tier Showcase for Sports Pants -->
+      <div style="margin-bottom: var(--space-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); flex-wrap: wrap; gap: var(--space-sm);">
+          <h3 style="font-size: 1.15rem; color: #ffffff; display: flex; align-items: center; gap: 8px;">
+            <span>🔥</span> عروض باقات البناطيل الرياضية (خامة قطن ممتازة، 11 لون ومقاسات خاصة):
+          </h3>
+          <span class="badge badge-green">خصم متصاعد كلما زادت الكمية!</span>
+        </div>
+
+        <div class="grid-4">
+          <div class="offer-tier-card" id="tier1" onclick="selectEzzoTier(1, 375, 'قطعة واحدة')">
+            <div class="tier-title">قطعة واحدة</div>
+            <div class="tier-price">375 <span style="font-size: 0.9rem;">ج.م</span></div>
+            <div style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 4px;">تجربة الخامة والجودة</div>
+            <div class="tier-saving" style="visibility: hidden;">-</div>
+          </div>
+
+          <div class="offer-tier-card" id="tier2" onclick="selectEzzoTier(2, 740, 'قطعتين')">
+            <div class="tier-title">قطعتين (2 بنطلون)</div>
+            <div class="tier-price">740 <span style="font-size: 0.9rem;">ج.م</span></div>
+            <div style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 4px;">سعر القطعة 370 ج.م</div>
+            <div class="tier-saving">توفير 10 جنيه</div>
+          </div>
+
+          <div class="offer-tier-card" id="tier3" onclick="selectEzzoTier(3, 1100, '3 قطع')">
+            <div class="tier-title">3 قطع (باقة التوفير)</div>
+            <div class="tier-price">1,100 <span style="font-size: 0.9rem;">ج.م</span></div>
+            <div style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 4px;">سعر القطعة 366 ج.م</div>
+            <div class="tier-saving">توفير 25 جنيه</div>
+          </div>
+
+          <div class="offer-tier-card selected" id="tier6" onclick="selectEzzoTier(6, 2100, 'نصف دستة (6 قطع)')">
+            <div style="display: inline-block; background: var(--secondary); color: var(--on-secondary); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; margin-bottom: 4px;">أفضل قيمة ⭐</div>
+            <div class="tier-title">نصف دستة (6 قطع)</div>
+            <div class="tier-price">2,100 <span style="font-size: 0.9rem;">ج.م</span></div>
+            <div style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 4px;">سعر القطعة 350 ج.م فقط!</div>
+            <div class="tier-saving">توفير 150 جنيه كاملة! 🔥</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Order Customizer -->
+      <div class="calculator-box" style="background: var(--surface-container-low);">
+        <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: var(--space-md);">
+          🎨 تخصيص طلبك ومقاسك ولونك بنقرة زر:
+        </h4>
+
+        <div class="calc-row">
+          <div class="input-group">
+            <label class="input-label" for="ezzoSizeSelect">المقاس المطلوب (متوفر M حتى 6XL):</label>
+            <select id="ezzoSizeSelect" class="input-field" onchange="updateEzzoOrder()">
+              <option value="M">مقاس M (وزن 55 - 65 كجم)</option>
+              <option value="L">مقاس L (وزن 65 - 75 كجم)</option>
+              <option value="XL" selected>مقاس XL (وزن 75 - 85 كجم)</option>
+              <option value="2XL">مقاس 2XL (وزن 85 - 95 كجم)</option>
+              <option value="3XL">مقاس 3XL (وزن 95 - 105 كجم)</option>
+              <option value="4XL">مقاس 4XL (وزن 105 - 115 كجم)</option>
+              <option value="5XL">مقاس 5XL (وزن 115 - 125 كجم)</option>
+              <option value="6XL">مقاس 6XL (مقاسات خاصة وكبيرة)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="ezzoColorSelect">الألوان المفضلة (11 لون متاح):</label>
+            <select id="ezzoColorSelect" class="input-field" onchange="updateEzzoOrder()">
+              <option value="أسود كلاسيك">أسود كلاسيك</option>
+              <option value="كحلي ملكي">كحلي ملكي</option>
+              <option value="رمادي غامق">رمادي غامق</option>
+              <option value="رمادي فاتح">رمادي فاتح</option>
+              <option value="زيتي عسكري">زيتي عسكري</option>
+              <option value="نبيتي فاخر">نبيتي فاخر</option>
+              <option value="أزرق بترولي">أزرق بترولي</option>
+              <option value="بيج صحراوي">بيج صحراوي</option>
+              <option value="تشكيلة ألوان منوعة" selected>تشكيلة ألوان منوعة حسب اختياري</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label">أرقام هواتف المتجر المباشرة:</label>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div class="phone-row">
+                <span style="font-size: 0.8rem; color: var(--primary);">الطلب السريع 1:</span>
+                <span class="phone-number"><bdi>01157502095</bdi></span>
+              </div>
+              <div class="phone-row">
+                <span style="font-size: 0.8rem; color: var(--secondary);">الطلب السريع 2:</span>
+                <span class="phone-number"><bdi>01156584596</bdi></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-banner" style="background: rgba(25, 227, 193, 0.08); border-color: var(--primary);">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--on-surface-variant);">تفاصيل طلب البنطلون:</div>
+            <div id="ezzoOrderSummary" style="font-weight: 700; color: #ffffff;">
+              نصف دستة (6 قطع) | مقاس XL | تشكيلة ألوان منوعة
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
+            <div>
+              <span style="font-size: 0.8rem; color: var(--primary);">الإجمالي المطلوب:</span>
+              <div class="result-val" id="ezzoFinalPrice">2,100 ج.م</div>
+            </div>
+            <button type="button" class="btn btn-teal" onclick="sendEzzoOrder()">
+              إرسال طلب البناطيل عبر واتساب
+            </button>
+          </div>
+        </div>
+
+        <!-- Store Channels Footer -->
+        <div style="margin-top: var(--space-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-sm); font-size: 0.85rem; color: var(--on-surface-variant);">
+          <div>🛒 رابط المتجر الرسمي: <strong style="color: #ffffff;"><bdi dir="ltr">2219412.eg.dukan.shop</bdi></strong></div>
+          <div style="display: flex; gap: var(--space-sm);">
+            <span>Facebook: عزو أونلاين</span>
+            <span>•</span>
+            <span>Instagram: @hamster.7164288</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. مدد فون (صيانة وبيع الهواتف الذكية - م. عبد الحليم صلاح خليل) -->
+    <section id="madadSection" class="glass-card neon-border-orange">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker kicker-orange">📱 صيانة وإلكترونيات</span>
+          <h2>مدد فون (م. عبد الحليم صلاح خليل)</h2>
+          <p>بيع وصيانة كافة أنواع الهواتف الذكية • شاشات أصلية • صيانة أعطال اللوحة الأم • كافة الإكسسوارات والشواحن</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs);">
+          <span class="badge badge-orange">شارع زكي السيسي قبل عصائر رسلان</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Service Specs & Location Card -->
+        <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.35rem;">
+              مركز مدد فون المتخصص في الموبايل
+            </h3>
+            <p style="color: var(--on-surface-variant); font-size: 0.92rem; margin-bottom: var(--space-md);">
+              بإشراف مباشر من <strong>المهندس عبد الحليم صلاح خليل</strong>. نقدم كشفاً دقيقاً للأعطال وقطع غيار أصلية مع الضمان لكافة أجهزة آيفون، سامسونج، شاومي، وأوبو.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--space-md);">
+              <div class="stat-tile">
+                <span class="stat-label">📍 العنوان التفصيلي الدقيق:</span>
+                <span style="font-weight: 700; color: #ffffff;">شارع زكي السيسي - قبل عصائر رسلان</span>
+              </div>
+
+              <div class="stat-tile">
+                <span class="stat-label">📞 أرقام الواتساب والاتصال الفوري:</span>
+                <div class="phone-row">
+                  <span style="color: var(--primary);">المهندس عبد الحليم 1:</span>
+                  <span class="phone-number"><bdi>01130183516</bdi></span>
+                </div>
+                <div class="phone-row">
+                  <span style="color: var(--secondary);">رقم الدعم والصيانة 2:</span>
+                  <span class="phone-number"><bdi>01156684294</bdi></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-orange" style="flex: 1;" onclick="contactMadadPhone()">
+              استشارة صيانة فورية
+            </button>
+            <button type="button" class="btn btn-ghost" onclick="copyText('01130183516', 'رقم مدد فون')">
+              نسخ رقم الصيانة
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Maintenance Inquiry Form -->
+        <div class="calculator-box">
+          <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: var(--space-sm);">
+            🛠️ استفسار سريع عن تكلفة تصليح هاتفك أو توفر قطعة:
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--on-surface-variant); margin-bottom: var(--space-md);">
+            أدخل موديل الهاتف والعطل وسيتم تجهيز الرسالة مباشرة لكود خصم وسيطك:
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+            <div class="input-group">
+              <label class="input-label" for="phoneModelInput">نوع وموديل الموبايل:</label>
+              <input type="text" id="phoneModelInput" class="input-field" placeholder="مثال: iPhone 13 Pro أو Samsung A54...">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="issueTypeSelect">نوع المشكلة أو القطعة المطلوبة:</label>
+              <select id="issueTypeSelect" class="input-field">
+                <option value="تغيير شاشة أصلية">تغيير شاشة أصلية (كسر / شاشة سوداء)</option>
+                <option value="استبدال بطارية">استبدال بطارية ضعيفة مع ضمان</option>
+                <option value="عطل شحن أو سوكت">مشكلة في مدخل الشحن / الشحن السريع</option>
+                <option value="صيانة ماذربورد وسوفتوير">صيانة لوحة أم (Motherboard) أو سوفتوير</option>
+                <option value="شراء شواحن وإكسسوارات أصلية">طلب إكسسوارات وشاحن أصلي</option>
+              </select>
+            </div>
+
+            <div style="background: rgba(25, 227, 193, 0.08); padding: var(--space-sm) var(--space-md); border-radius: var(--rounded-sm); border: 1px solid rgba(25, 227, 193, 0.3); font-size: 0.85rem; color: var(--primary);">
+              ✨ كود وسيطك مفعل تلقائياً لخصم خاص على الصيانة وقطع الغيار
+            </div>
+
+            <button type="button" class="btn btn-teal" onclick="submitPhoneRepairInquiry()">
+              إرسال استفسار الصيانة للمهندس
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. دليل التواصل الموحد والمكاتب الرسمية (Directory of Contacts) -->
+    <section id="contactsSection" class="glass-card neon-border-teal">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="kicker">📞 التواصل وخدمة العملاء</span>
+          <h2>دليل فروع ومكاتب عائلة وسيطك حول العالم</h2>
+          <p>تواصل مباشر مع إدارات السودان، مصر، والإمارات عبر القنوات الرسمية المعتمدة</p>
+        </div>
+        <div style="display: flex; gap: var(--space-xs);">
+          <span class="badge badge-teal">جاهزون لخدمتكم 24/7</span>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <!-- Sudan HQ Office -->
+        <div class="contact-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-teal">مكتب السودان</span>
+            <span>🇸🇩</span>
+          </div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: #ffffff; margin-top: 4px;">الإدارة العامة بالسودان</div>
+          <div style="font-size: 0.82rem; color: var(--on-surface-variant);">متابعة الشحن والتنسيق الإقليمي</div>
+          <div class="phone-row">
+            <span style="font-size: 0.78rem; color: var(--primary);">واتساب وهاتف:</span>
+            <span class="phone-number"><bdi>+249 124 690 430</bdi></span>
+          </div>
+          <button type="button" class="btn btn-teal-outline" style="margin-top: 8px; width: 100%; font-size: 0.82rem; padding: 0.4rem;" onclick="openWhatsAppDirect('249124690430', 'مكتب السودان')">
+            محادثة واتساب مباشرة
+          </button>
+        </div>
+
+        <!-- Khartoum Warehouse -->
+        <div class="contact-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-teal">مستودع الخرطوم</span>
+            <span>🏬</span>
+          </div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: #ffffff; margin-top: 4px;">مخزن السجانة - الخرطوم</div>
+          <div style="font-size: 0.82rem; color: var(--on-surface-variant);">استلام الطرود وشحنات الأثاث</div>
+          <div class="phone-row">
+            <span style="font-size: 0.78rem; color: var(--primary);">هاتف المستودع:</span>
+            <span class="phone-number"><bdi>+249 116 558 290</bdi></span>
+          </div>
+          <button type="button" class="btn btn-teal-outline" style="margin-top: 8px; width: 100%; font-size: 0.82rem; padding: 0.4rem;" onclick="openWhatsAppDirect('249116558290', 'مستودع الخرطوم السجانة')">
+            محادثة المستودع
+          </button>
+        </div>
+
+        <!-- Cairo Operations Office -->
+        <div class="contact-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-orange">مكتب القاهرة</span>
+            <span>🇪🇬</span>
+          </div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: #ffffff; margin-top: 4px;">موقف المساكن - ميدان الساعة</div>
+          <div style="font-size: 0.82rem; color: var(--on-surface-variant);">الشحن والتذاكر والطرود المنزلية</div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="phone-row">
+              <span style="font-size: 0.75rem; color: var(--secondary);">رقم 1:</span>
+              <span class="phone-number"><bdi>01095143939</bdi></span>
+            </div>
+            <div class="phone-row">
+              <span style="font-size: 0.75rem; color: var(--secondary);">رقم 2:</span>
+              <span class="phone-number"><bdi>01002238148</bdi></span>
+            </div>
+            <div class="phone-row">
+              <span style="font-size: 0.75rem; color: var(--secondary);">رقم 3:</span>
+              <span class="phone-number"><bdi>01156584596</bdi></span>
+            </div>
+          </div>
+          <button type="button" class="btn btn-orange-outline" style="margin-top: 8px; width: 100%; font-size: 0.82rem; padding: 0.4rem;" onclick="openWhatsAppDirect('201095143939', 'مكتب القاهرة')">
+            محادثة فرع القاهرة
+          </button>
+        </div>
+
+        <!-- UAE Ajman Office -->
+        <div class="contact-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-orange">فرع الإمارات</span>
+            <span>🇦🇪</span>
+          </div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: #ffffff; margin-top: 4px;">عجمان - النعيمية</div>
+          <div style="font-size: 0.82rem; color: var(--on-surface-variant);">خدمات رجال الأعمال وتنظيف المباني</div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div class="phone-row">
+              <span style="font-size: 0.75rem; color: var(--primary);">Pink أعمال:</span>
+              <span class="phone-number"><bdi>+971 56 160 0333</bdi></span>
+            </div>
+            <div class="phone-row">
+              <span style="font-size: 0.75rem; color: var(--secondary);">أبو عبد ربه:</span>
+              <span class="phone-number"><bdi>+971 54 428 9536</bdi></span>
+            </div>
+          </div>
+          <button type="button" class="btn btn-teal-outline" style="margin-top: 8px; width: 100%; font-size: 0.82rem; padding: 0.4rem;" onclick="openWhatsAppDirect('971561600333', 'فرع الإمارات عجمان')">
+            محادثة فرع الإمارات
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Media & Official Channels Bar -->
+      <div style="margin-top: var(--space-lg); background: var(--surface-container-low); border: 1px solid var(--outline); border-radius: var(--rounded); padding: var(--space-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+        <div style="display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
+          <span style="font-weight: 700; color: #ffffff;">🌐 قنوات وسيطك الرسمية:</span>
+          <span class="badge">Facebook: وسيطك الرسمية</span>
+          <span class="badge">Instagram: @wdamk4</span>
+          <span class="badge">WhatsApp Channel: قناة وسيطك المعتمدة</span>
+        </div>
+        <div>
+          <button type="button" class="btn btn-ghost" onclick="copyAllContactInfo()">
+            نسخ جميع بيانات الاتصال
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portal-footer">
+      <div style="font-size: 1.25rem; font-weight: 900; color: #ffffff; margin-bottom: 0.4rem;">
+        عائلة وسيطك 👑🔥 Business Man 😎🥸
+      </div>
+      <p style="font-size: 0.88rem; max-width: 600px; margin: 0 auto; color: var(--on-surface-variant);">
+        خدمات متكاملة في الشحن، النقل، تذاكر البصات والطيران، العمرة، خدمات رجال الأعمال بدولة الإمارات، المتجر الإلكتروني، وصيانة الهواتف الذكية.
+      </p>
+
+      <div class="footer-signature">
+        تصميم وتطوير: حريف بوسترات نسخة المواقع الإلكترونية 😎🔥 — <bdi dir="ltr">01157502095</bdi>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Floating WhatsApp Action Button (Sudan Direct +249124690430) -->
+  <button type="button" class="floating-whatsapp" onclick="openWhatsAppDirect('249124690430', 'مكتب السودان الرئيسي')" aria-label="محادثة واتساب المباشرة لمكتب السودان">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>واتساب السودان: <bdi dir="ltr">+249 124 690 430</bdi></span>
+  </button>
+
+  <api-shim></api-shim>
+
+  <script>
+    // Bus Tickets Data (October 2026 - EGP)
+    const busTicketsData = [
+      { id: 1, destination: `الخرطوم`, price: 3000, notes: `خط مباشر وسريع عبر المعبر، وصول السجانة والموقف` },
+      { id: 2, destination: `عطبرة`, price: 3000, notes: `بصات مريحة ومكيفة، طريق الشمالية - نهر النيل` },
+      { id: 3, destination: `ود مدني`, price: 3600, notes: `طريق الجزيرة السريع، توقفات محددة وراحة للمسافرين` },
+      { id: 4, destination: `كوستي / ربك`, price: 3700, notes: `مسار ولاية النيل الأبيض عبر أحدث البصات` },
+      { id: 5, destination: `سنار`, price: 3800, notes: `بصات سياحية مكيفة مع وجبة خفيفة ومتابعة` },
+      { id: 6, destination: `سنجة`, price: 4000, notes: `ولاية سنار مع إمكانية شحن الأمتعة الزائدة` },
+      { id: 7, destination: `بورتسودان`, price: 3800, notes: `خط البحر الأحمر، بصات مجهزة لمسافات السفر الطويلة` },
+      { id: 8, destination: `كسلا`, price: 3900, notes: `خط الشرق - كسلا الوريفة، تنظيم دقيق ومواعيد منتظمة` },
+      { id: 9, destination: `القضارف`, price: 4200, notes: `بصات حديثة، مسار آمن وخدمة مميزة على مدار الرحلة` },
+      { id: 10, destination: `المناقل`, price: 3800, notes: `طريق غرب الجزيرة والمناقل، وصول منظم ومباشر` },
+      { id: 11, destination: `الدمازين`, price: 4300, notes: `ولاية النيل الأزرق، سائقون محترفون وطاقم ضيافة متميز` }
+    ];
+
+    // Current State
+    let currentBusList = [...busTicketsData];
+    let selectedEzzoPack = { pieces: 6, price: 2100, label: `نصف دستة (6 قطع)` };
+    let docsChecked = { doc1: false, doc2: false, doc3: false };
+    let couponCopied = false;
+
+    // Toast Utility
+    function showToast(message, icon = '✨') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      if (!toast || !toastMsg || !toastIcon) return;
+
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // Scroll Utility
+    function scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Copy to Clipboard Utility
+    function copyText(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(`تم نسخ ${label} بنجاح: ${text}`, '📋');
+        }).catch(() => {
+          fallbackCopyText(text, label);
+        });
+      } else {
+        fallbackCopyText(text, label);
+      }
+    }
+
+    function fallbackCopyText(text, label) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`تم نسخ ${label} بنجاح: ${text}`, '📋');
+    }
+
+    // Copy Coupon Code
+    function copyCouponCode() {
+      const code = `أنا من طرف وسيطك 😎👑💪`;
+      copyText(code, 'كود الخصم');
+      couponCopied = true;
+      saveAppStateToShim();
+    }
+
+    // Copy All Contact Info
+    function copyAllContactInfo() {
+      const text = `بيانات عائلة وسيطك Business Man:
+- مكتب السودان: +249124690430
+- مخزن الخرطوم (السجانة): +249116558290
+- مكتب القاهرة (موقف المساكن): 01095143939 / 01002238148 / 01156584596
+- فرع الإمارات (عجمان): وكالة Pink (+971561600333) | شركة أبو عبد ربه (+971544289536)
+- وكالة أبشيبة للطيران والعمرة: 01159619986
+- متجر عزو: 01157502095 / 01156584596
+- مدد فون (م. عبد الحليم): 01130183516 / 01156684294
+- كود الخصم: أنا من طرف وسيطك 😎👑💪`;
+      copyText(text, 'كافة بيانات التواصل');
+    }
+
+    // Open WhatsApp Message
+    function openWhatsAppDirect(phone, targetName, customMsg = '') {
+      const baseMsg = customMsg ? customMsg : `السلام عليكم عائلة وسيطك، أرغب بالاستفسار عن خدماتكم، ومعي كود الخصم: أنا من طرف وسيطك 😎👑💪`;
+      const encoded = encodeURIComponent(baseMsg);
+      const url = `https://wa.me/${phone}?text=${encoded}`;
+      // Display clean toast with copy action
+      copyText(phone, `رقم ${targetName}`);
+      showToast(`تم نسخ رقم ${targetName} (${phone}) وجاهز للمراسلة!`, '💬');
+    }
+
+    // Render Bus Table
+    function renderBusTable(items) {
+      const tbody = document.getElementById('busTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem; color: var(--on-surface-variant);">لا توجد وجهة مطابقة للبحث المحدد. جرب كتابة اسم مدينة أخرى.</td></tr>`;
+        return;
+      }
+
+      items.forEach(bus => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div style="font-weight: 800; color: #ffffff; font-size: 1.05rem;">${bus.destination}</div>
+            <div style="font-size: 0.8rem; color: var(--on-surface-muted);">انطلاق من القاهرة - موقف المساكن</div>
+          </td>
+          <td>
+            <span style="font-size: 1.25rem; font-weight: 900; color: var(--secondary);">${bus.price.toLocaleString()}</span>
+            <span style="font-size: 0.82rem; color: var(--on-surface-variant);"> ج.م</span>
+          </td>
+          <td>
+            <span class="badge badge-teal" style="font-size: 0.8rem;">ساري ومؤكد ✔️</span>
+          </td>
+          <td style="font-size: 0.88rem; color: var(--on-surface-variant);">
+            ${bus.notes}
+          </td>
+          <td style="text-align: center;">
+            <button type="button" class="btn btn-orange-outline" style="padding: 0.4rem 0.8rem; font-size: 0.84rem; min-height: 36px;" onclick="bookSingleTicket('${bus.destination}', ${bus.price})">
+              حجز المقعد
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Filter Bus Table
+    function filterBusTable() {
+      const query = (document.getElementById('busSearchInput')?.value || '').trim().toLowerCase();
+      const priceFilter = document.getElementById('busPriceFilter')?.value || 'all';
+
+      let filtered = busTicketsData.filter(bus => {
+        const matchesQuery = bus.destination.toLowerCase().includes(query) || bus.notes.toLowerCase().includes(query);
+        let matchesPrice = true;
+        if (priceFilter === 'under-3500') {
+          matchesPrice = bus.price <= 3600;
+        } else if (priceFilter === '3700-4000') {
+          matchesPrice = bus.price >= 3700 && bus.price <= 4000;
+        } else if (priceFilter === 'above-4000') {
+          matchesPrice = bus.price > 4000;
+        }
+        return matchesQuery && matchesPrice;
+      });
+
+      // Apply sort
+      applySortToBusList(filtered);
+    }
+
+    // Sort Bus Table
+    function sortBusTable() {
+      filterBusTable();
+    }
+
+    function applySortToBusList(list) {
+      const sortType = document.getElementById('busSortSelect')?.value || 'default';
+      let sorted = [...list];
+
+      if (sortType === 'price-asc') {
+        sorted.sort((a, b) => a.price - b.price);
+      } else if (sortType === 'price-desc') {
+        sorted.sort((a, b) => b.price - a.price);
+      } else if (sortType === 'name-asc') {
+        sorted.sort((a, b) => a.destination.localeCompare(b.destination, 'ar'));
+      }
+
+      currentBusList = sorted;
+      renderBusTable(sorted);
+    }
+
+    // Populate Group Calc Dropdown
+    function initGroupCalcDropdown() {
+      const select = document.getElementById('groupDestination');
+      if (!select) return;
+      select.innerHTML = '';
+      busTicketsData.forEach(bus => {
+        const opt = document.createElement('option');
+        opt.value = bus.id;
+        opt.textContent = `${bus.destination} (${bus.price} ج.م)`;
+        select.appendChild(opt);
+      });
+    }
+
+    // Calc Group Fares
+    function calcGroupFares() {
+      const destId = parseInt(document.getElementById('groupDestination')?.value || '1', 10);
+      const count = parseInt(document.getElementById('passengerCount')?.value || '1', 10) || 1;
+      const applyDiscount = document.getElementById('groupDiscountApply')?.value === 'yes';
+
+      const bus = busTicketsData.find(b => b.id === destId) || busTicketsData[0];
+      const baseCost = bus.price * count;
+      const finalCost = baseCost; // Fixed standard regulated fare with verified discount code service
+
+      const detailsEl = document.getElementById('groupCalcDetails');
+      const totalEl = document.getElementById('groupTotalCost');
+
+      if (detailsEl) {
+        detailsEl.textContent = `${count} تذاكر سفر إلى ${bus.destination} (سعر الفرد: ${bus.price} ج.م)`;
+      }
+      if (totalEl) {
+        totalEl.textContent = `${finalCost.toLocaleString()} ج.م`;
+      }
+    }
+
+    // Single Ticket Booking Action
+    function bookSingleTicket(destination, price) {
+      const msg = `مرحباً مكتب حجز بصات وسيطك (القاهرة - السودان)، أرغب في حجز تذكرة سفر إلى: ${destination} بسعر ${price} ج.م، ومعي كود الخصم: أنا من طرف وسيطك 😎👑💪`;
+      copyText(`01095143939`, 'رقم حجز البصات');
+      showToast(`تم تجهيز طلب حجز تذكرة ${destination} ونسخ رقم هاتف الحجز 01095143939`, '🎫');
+    }
+
+    // Group Ticket Booking Action
+    function bookGroupTickets() {
+      const destId = parseInt(document.getElementById('groupDestination')?.value || '1', 10);
+      const count = parseInt(document.getElementById('passengerCount')?.value || '1', 10) || 1;
+      const bus = busTicketsData.find(b => b.id === destId) || busTicketsData[0];
+      const total = bus.price * count;
+
+      const summary = `طلب حجز جماعي لعدد ${count} مسافرين إلى ${bus.destination} بإجمالي ${total.toLocaleString()} ج.م مع كود وسيطك`;
+      copyText(`01095143939`, 'رقم الحجز');
+      showToast(`تم تأكيد ${summary} ونسخ رقم مكتب القاهرة 01095143939`, '👥');
+      saveAppStateToShim();
+    }
+
+    // Shipping Calculator & Inquiry
+    function calculateShipping() {
+      const type = document.getElementById('cargoType')?.value || 'furniture';
+      const size = document.getElementById('cargoSize')?.value || 'medium';
+      const pickup = document.getElementById('pickupOption')?.value || 'home';
+
+      const typeLabels = {
+        furniture: 'أثاث ومفروشات',
+        appliances: 'أجهزة كهربائية',
+        cartons: 'كراتين وملابس',
+        commercial: 'بضائع تجارية'
+      };
+
+      const sizeLabels = {
+        small: 'حجم خفيف / كراتين فردية',
+        medium: 'حجم متوسط',
+        large: 'حجم كبير (عفش كامل)',
+        huge: 'شحنة ضخمة تجارية'
+      };
+
+      const pickupLabel = pickup === 'home' ? 'استلام من باب البيت بالقاهرة' : 'تسليم بموقف المساكن';
+
+      const summaryEl = document.getElementById('shippingEstimateSummary');
+      if (summaryEl) {
+        summaryEl.textContent = `${typeLabels[type]} - ${sizeLabels[size]} - ${pickupLabel} مع تطبيق كود وسيطك 🔥`;
+      }
+    }
+
+    function sendShippingInquiry() {
+      const summary = document.getElementById('shippingEstimateSummary')?.textContent || 'طلب شحن';
+      copyText(`01095143939`, 'رقم إدارة الشحن معاذ عبد الباقي');
+      showToast(`تم نسخ رقم إدارة الشحن 01095143939 لتثبيت طلب الشحنة: ${summary}`, '🚚');
+    }
+
+    // Umrah & Aviation Actions
+    function toggleDocCheck(num) {
+      if (num === 1) docsChecked.doc1 = !docsChecked.doc1;
+      if (num === 2) docsChecked.doc2 = !docsChecked.doc2;
+      if (num === 3) docsChecked.doc3 = !docsChecked.doc3;
+
+      updateDocsUI();
+      saveAppStateToShim();
+    }
+
+    function updateDocsUI() {
+      const item1 = document.getElementById('checkDoc1');
+      const item2 = document.getElementById('checkDoc2');
+      const item3 = document.getElementById('checkDoc3');
+      const box1 = document.getElementById('boxDoc1');
+      const box2 = document.getElementById('boxDoc2');
+      const box3 = document.getElementById('boxDoc3');
+      const progressText = document.getElementById('docsProgressText');
+      const statusText = document.getElementById('docsReadyStatus');
+
+      let readyCount = 0;
+
+      if (docsChecked.doc1) {
+        item1?.classList.add('checked');
+        if (box1) box1.innerHTML = '✔';
+        readyCount++;
+      } else {
+        item1?.classList.remove('checked');
+        if (box1) box1.innerHTML = '';
+      }
+
+      if (docsChecked.doc2) {
+        item2?.classList.add('checked');
+        if (box2) box2.innerHTML = '✔';
+        readyCount++;
+      } else {
+        item2?.classList.remove('checked');
+        if (box2) box2.innerHTML = '';
+      }
+
+      if (docsChecked.doc3) {
+        item3?.classList.add('checked');
+        if (box3) box3.innerHTML = '✔';
+        readyCount++;
+      } else {
+        item3?.classList.remove('checked');
+        if (box3) box3.innerHTML = '';
+      }
+
+      if (progressText) {
+        progressText.textContent = `${readyCount} من 3 جاهز`;
+      }
+
+      if (statusText) {
+        if (readyCount === 3) {
+          statusText.innerHTML = `<span style="color: var(--positive);">🎉 ممتاز! كافة المستندات مكتملة، مؤهل للإصدار الفوري بـ 920 ريال.</span>`;
+        } else {
+          statusText.textContent = `متبقي ${3 - readyCount} متطلب(ات) لاكتمال ملف التقديم السريع.`;
+        }
+      }
+    }
+
+    function requestUmrahPackage() {
+      copyText(`01159619986`, 'رقم وكالة أبشيبة والبراري');
+      showToast(`تم نسخ رقم وكالة أبشيبة (01159619986) لطلب تأشيرة العمرة بـ 920 ريال!`, '🕋');
+    }
+
+    function contactAgencyDirect() {
+      copyText(`01159619986`, 'رقم وكالة أبشيبة للطيران');
+      showToast(`تم نسخ رقم الوكالة 01159619986 لمتابعة تصاريح السفر والطيران`, '✈️');
+    }
+
+    // UAE Contacts Actions
+    function contactUAEBusiness() {
+      copyText(`+971561600333`, 'رقم وكالة Pink بعجمان');
+      showToast(`تم نسخ رقم وكالة Pink لخدمات رجال الأعمال: +971561600333`, '🏢');
+    }
+
+    function contactCleaningServices() {
+      copyText(`+971544289536`, 'رقم شركة أبو عبد ربه للتنظيف');
+      showToast(`تم نسخ رقم شركة أبو عبد ربه لتنظيف المباني: +971544289536`, '🧹');
+    }
+
+    // Ezzo Store Actions
+    function selectEzzoTier(pieces, price, label) {
+      selectedEzzoPack = { pieces, price, label };
+
+      // Highlight selected tier
+      ['tier1', 'tier2', 'tier3', 'tier6'].forEach(id => {
+        document.getElementById(id)?.classList.remove('selected');
+      });
+      const activeCard = document.getElementById(`tier${pieces}`);
+      if (activeCard) activeCard.classList.add('selected');
+
+      updateEzzoOrder();
+      saveAppStateToShim();
+    }
+
+    function updateEzzoOrder() {
+      const size = document.getElementById('ezzoSizeSelect')?.value || 'XL';
+      const color = document.getElementById('ezzoColorSelect')?.value || 'تشكيلة ألوان';
+      const summaryEl = document.getElementById('ezzoOrderSummary');
+      const priceEl = document.getElementById('ezzoFinalPrice');
+
+      if (summaryEl) {
+        summaryEl.textContent = `${selectedEzzoPack.label} | مقاس ${size} | لون: ${color}`;
+      }
+      if (priceEl) {
+        priceEl.textContent = `${selectedEzzoPack.price.toLocaleString()} ج.م`;
+      }
+    }
+
+    function sendEzzoOrder() {
+      const size = document.getElementById('ezzoSizeSelect')?.value || 'XL';
+      const color = document.getElementById('ezzoColorSelect')?.value || 'تشكيلة ألوان';
+      const summary = `طلب بناطيل رياضية من متجر عزو: ${selectedEzzoPack.label} - مقاس ${size} - ألوان ${color} - الإجمالي: ${selectedEzzoPack.price} ج.م بكود الخصم: أنا من طرف وسيطك 😎👑💪`;
+      copyText(`01157502095`, 'رقم متجر عزو للطلب');
+      showToast(`تم نسخ رقم المتجر 01157502095 وتجهيز تفاصيل طلبك بنجاح!`, '👕');
+    }
+
+    // Madad Phone Actions
+    function contactMadadPhone() {
+      copyText(`01130183516`, 'رقم المهندس عبد الحليم (مدد فون)');
+      showToast(`تم نسخ رقم المهندس عبد الحليم: 01130183516 (شارع زكي السيسي)`, '📱');
+    }
+
+    function submitPhoneRepairInquiry() {
+      const model = document.getElementById('phoneModelInput')?.value.trim() || 'هاتف ذكي';
+      const issue = document.getElementById('issueTypeSelect')?.value || 'صيانة عامة';
+      const msg = `استفسار صيانة مدد فون: جهاز ${model} - العطل: ${issue} - كود الخصم: أنا من طرف وسيطك 😎👑💪`;
+      copyText(`01130183516`, 'رقم صيانة مدد فون');
+      showToast(`تم نسخ رقم الصيانة 01130183516 لتسجيل جهازك (${model})!`, '🛠️');
+    }
+
+    // State Persistence via notebookAppApi shim
+    async function saveAppStateToShim() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+        try {
+          await window.notebookAppApi.setAppState({
+            selectedBusDestId: document.getElementById('groupDestination')?.value || '1',
+            passengerCount: document.getElementById('passengerCount')?.value || '2',
+            ezzoPieces: selectedEzzoPack.pieces,
+            ezzoSize: document.getElementById('ezzoSizeSelect')?.value || 'XL',
+            docsChecked: docsChecked,
+            couponCopied: couponCopied
+          });
+        } catch (e) {
+          console.error('Failed to save state:', e);
+        }
+      }
+    }
+
+    async function loadSavedState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+        try {
+          const state = await window.notebookAppApi.getAppState();
+          if (state) {
+            if (state.selectedBusDestId) {
+              const destSelect = document.getElementById('groupDestination');
+              if (destSelect) destSelect.value = state.selectedBusDestId;
+            }
+            if (state.passengerCount) {
+              const countInput = document.getElementById('passengerCount');
+              if (countInput) countInput.value = state.passengerCount;
+            }
+            if (state.ezzoPieces) {
+              const packPrices = { 1: 375, 2: 740, 3: 1100, 6: 2100 };
+              const packLabels = { 1: 'قطعة واحدة', 2: 'قطعتين', 3: '3 قطع', 6: 'نصف دستة (6 قطع)' };
+              selectEzzoTier(state.ezzoPieces, packPrices[state.ezzoPieces] || 2100, packLabels[state.ezzoPieces] || 'نصف دستة (6 قطع)');
+            }
+            if (state.ezzoSize) {
+              const sizeSelect = document.getElementById('ezzoSizeSelect');
+              if (sizeSelect) sizeSelect.value = state.ezzoSize;
+            }
+            if (state.docsChecked) {
+              docsChecked = state.docsChecked;
+              updateDocsUI();
+            }
+            calcGroupFares();
+            updateEzzoOrder();
+          }
+        } catch (e) {
+          console.error('Failed to restore state:', e);
+        }
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    // App Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBusTable(busTicketsData);
+      initGroupCalcDropdown();
+      calcGroupFares();
+      calculateShipping();
+      updateEzzoOrder();
+      updateDocsUI();
+      loadSavedState();
+    });
+  </script>
+</body>
+</html>
